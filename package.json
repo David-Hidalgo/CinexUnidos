@@ -1,25 +1,26 @@
 {
-  "name": "cinexunidos",
-  "version": "1.0.0",
-  "description": "Proyeco de Programación Web",
-  "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/David-Hidalgo/CinexUnidos.git"
-  },
-  "keywords": [
-    "cine"
-  ],
-  "author": "David Hidalgo, Daniel Castellanos, Rafael Marcano",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/David-Hidalgo/CinexUnidos/issues"
-  },
-  "homepage": "https://github.com/David-Hidalgo/CinexUnidos#readme",
-  "dependencies": {
-    "typescript": "^5.4.5"
-  }
+	"name": "cinexunidos",
+	"version": "1.0.0",
+	"description": "Proyeco de Programación Web",
+	"main": "index.ts",
+	"scripts": {
+		"test": "test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/David-Hidalgo/CinexUnidos.git"
+	},
+	"keywords": ["cine"],
+	"author": "David Hidalgo, Daniel Castellanos, Rafael Marcano",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/David-Hidalgo/CinexUnidos/issues"
+	},
+	"homepage": "https://github.com/David-Hidalgo/CinexUnidos#readme",
+	"dependencies": {
+		"typescript": "^5.4.5"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.7.3"
+	}
 }
