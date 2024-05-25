@@ -1,251 +1,498 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8" />
-    <title>Butacas</title>
+	<meta charset="UTF-8" />
+	<title>Butacas</title>
 </head>
+
 <body>
-	
-	<header>
-		<h1>Cinex Unidos</h1>
-		<p>las siguientes butacas están disponibles</p>
-	</header>
-	<hr/>
-	<article>
-		<h2>Sala A6-41</h2>
+	<section>
+		<header>
+			<h1><a href="cines.html">Cinex Unidos</a></h1>
+			<form action="">
+				<label for="search"></label>
+				<input type="search" name="Busqueda" value="Buscar películas" />
+				<button type="button">Buscar</button>
+			</form>
+			<br />
+			<h2><a href="">Notificaciones</a></h2>
+			<label for="Ubicacion"></label>
+			<select name="Ubicacion">
+				<option value="Caracas">Caracas</option>
+				<option value="Maracay">Maracay</option>
+				<option value="Valencia">Valencia</option>
+				<option value="Margarita">Margarita</option>
+				<option value="Maracaibo">Maracaibo</option>
+				<option value="Maturin">Maturin</option>
+				<option value="Barquisimento">Barquisimento</option>
+				<option value="Puerto Ordaz">Puerto Ordaz</option>
+			</select>
+
+		</header>
+		<hr />
+		<aside>
+			<hgroup>
+			</hgroup>
+			<h2>Navegación</h2>
+			<nav>
+				<ul>
+					<li>
+						<a href="./cines.html">Cines</a>
+					</li>
+					<li>
+						<a href="./cartelera.html">Películas</a>
+					</li>
+					<li>
+						<details>
+							<summary>Promociones</summary>
+							<ol>
+								<li>
+									<a href="./seleccion_carameleria.html#Promociones">Comida</a>
+								</li>
+								<li>
+									<a href="./cartelera.html#Promociones">Entradas</a>
+								</li>
+							</ol>
+						</details>
+					</li>
+					<li>
+						<a href="./seleccion_carameleria.html">Caramelería</a>
+					</li>
+					<li>
+						<details>
+							<summary>Preferencias</summary>
+							<ol>
+								<!--<li>
+											<a href="">Temas</a>
+										</li> -->
+								<li>
+									<a href="./cines_fav.html">Cines favoritos</a>
+								</li>
+								<li>
+									<a href="./pelis_vistas.html">Películas vistas</a>
+								</li>
+								<li>
+									<a href="./ingles.html">Idioma</a>
+								</li>
+							</ol>
+						</details>
+					</li>
+				</ul>
+			</nav>
+			<br>
+			<hr />
+			<footer>
+				<small> ¿Necesitas ayuda? </small>
+				<small> <a href="">Contactanos</a> </small>
+			</footer>
+		</aside>
+		<hr />
+		<main>
+			<table role="presentation">
+				<colgroup>
+					<col style="border: 2px solid rgb(179, 30, 30)">
+					<col span="7">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">horas</th>
+						<th scope="col">
+							Lunes
+						</th>
+						<th scope="col">
+							Martes
+						</th>
+						<th scope="col">
+							Miercoles
+						</th>
+						<th scope="col">
+							Jueves
+						</th>
+						<th scope="col">
+							Viernes
+						</th>
+						<th scope="col">
+							Sabado
+						</th>
+						<th scope="col">
+							Domingo
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th role="rowheader">
+							<time datetime="8:00">8 A.M.</time>
+						</th>
+						<td rowspan="3">
+							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 4</time></button>
+
+						</td>
+						<td rowspan="1">
+							
+						</td>
+						<td rowspan="2">
+							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 5</time></button>
+							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 4</time></button>
+						</td>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="9:00">9 A.M.</time>
+						</th>
+						<td rowspan="2">
+							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 5</time></button>
+							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 4</time></button>
+						</td>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="10:00">10 A.M.</time>
+						</th>
+						<td rowspan="2">
+						</td>
+						<td rowspan="2">
+
+						</td>
+						<td rowspan="2">
+						</td>
+						<td rowspan="2">
+							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 5</time></button>
+							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 4</time></button>
+						</td>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="11:00">11 A.M.</time>
+						</th>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="12:00">12 P.M.</time>
+						</th>
+						<td>
+							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
+						</td>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="13:00">1 P.M.</time>
+						</th>
+						<td>
+							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
+						</td>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="14:00">2 P.M.</time>
+						</th>
+						<td>
+							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
+						</td>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="15:00">3 P.M.</time>
+						</th>
+						<td>
+							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
+						</td>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="16:00">4 P.M.</time>
+						</th>
+						<td>
+							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
+						</td>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="17:00">5 P.M.</time>
+						</th>
+						<td>
+							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
+						</td>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="18:00">6 P.M.</time>
+						</th>
+						<td>
+							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
+						</td>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="19:00">7 P.M.</time>
+						</th>
+						<td>
+							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
+						</td>
+					</tr>
+					<tr>
+						<th role="rowheader">
+							<time datetime="20:00">8 P.M.</time>
+						</th>
+						<td>
+							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
+						</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 5</time></button>
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+
+		</main>
+		<hr />
+		<footer>
+			<small> Necesitas ayuda? </small>
+			<small> <a href="">contactenos</a> </small>
+		</footer>
+	</section>
+
+</body>
+
+</html>
+
+<article popover id="popupSala">
+	<h2>Sala A6-41</h2>
+	<form action="comprar">
 		<table>
 			<tbody>
 				<tr>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="1,1">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="1,2">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="1,3">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="1,4">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="1,5">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="1,6">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="1,7">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="1,8">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="1,9">
 					</td>
 					<td>
-						x
-					</td>
-				</tr>
-				<tr>
-					<td>
-						o
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						x
+						<input type="checkbox" name="Asiento" id="1,10">
 					</td>
 				</tr>
 				<tr>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="2,1">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="2,2">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="2,3">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="2,4">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="2,5">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="2,6">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="2,7">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Ocupado" id="2,8" disabled>
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Ocupado" id="2,9" disabled>
 					</td>
 					<td>
-						x
-					</td>
-				</tr>
-				<tr>
-					<td>
-						x
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						x
+						<input type="checkbox" name="Ocupado" id="2,10" disabled>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="3,1">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="3,2">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="3,3">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="3,4">
 					</td>
 					<td>
-						x
+						<input type="checkbox" name="Asiento" id="3,5">
 					</td>
 					<td>
-						x
+						<input type="checkbox" name="Asiento" id="3,6">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="3,7">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="3,8">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="3,9">
 					</td>
 					<td>
-						x
-					</td>
-				</tr>
-				<tr>
-					<td>
-						o
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						x
-					</td>
-					<td>
-						o
-					</td>
-					<td>
-						x
+						<input type="checkbox" name="Ocupado" id="3,10" disabled>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						x
+						<input type="checkbox" name="Ocupado" id="4,1" disabled>
 					</td>
 					<td>
-						x
+						<input type="checkbox" name="Ocupado" id="4,2" disabled>
 					</td>
 					<td>
-						x
+						<input type="checkbox" name="Ocupado" id="4,3" disabled>
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="4,4">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="4,5">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="4,6">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Asiento" id="4,7">
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Ocupado" id="4,8" disabled>
 					</td>
 					<td>
-						o
+						<input type="checkbox" name="Ocupado" id="4,9" disabled>
 					</td>
 					<td>
-						x
+						<input type="checkbox" name="Ocupado" id="4,10" disabled>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="Asiento" id="5,8">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="5,2">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="5,3">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="5,4">
+					</td>
+					<td>
+						<input type="checkbox" name="Ocupado" id="5,5" disabled>
+					</td>
+					<td>
+						<input type="checkbox" name="Ocupado" id="5,6" disabled>
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="5,7">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="5,8">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="5,9">
+					</td>
+					<td>
+						<input type="checkbox" name="Ocupado" id="5,10" disabled>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="Asiento" id="6,1">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="6,2">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="6,3">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="6,4">
+					</td>
+					<td>
+						<input type="checkbox" name="Ocupado" id="6,5" disabled>
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="6,7">
+					</td>
+					<td>
+						<input type="checkbox" name="Ocupado" id="6,7" disabled>
+					</td>
+					<td>
+						<input type="checkbox" name="Ocupado" id="6,8" disabled>
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="6,9">
+					</td>
+					<td>
+						<input type="checkbox" name="Ocupado" id="6,10" disabled>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="Ocupado" id="7,1" disabled>
+					</td>
+					<td>
+						<input type="checkbox" name="Ocupado" id="7,2" disabled>
+					</td>
+					<td>
+						<input type="checkbox" name="Ocupado" id="7,3" disabled>
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="7,4">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="7,5">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="7,6">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="7,7">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="7,8">
+					</td>
+					<td>
+						<input type="checkbox" name="Asiento" id="7,9">
+					</td>
+					<td>
+						<input type="checkbox" name="Ocupado" id="7,10" disabled>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-	</article>
-	<hr/>
-	<footer>
-		<small> Necesitas ayuda? </small>
-		<small> <a href="tel:+584141111111">contactenos</a> </small>
-	</footer>
-</body>
-</html>
+	</form>
+	<h7><a href="./pago.html"> Comprar</a>
+		<h7>
+</article>

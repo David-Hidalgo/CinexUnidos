@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Cines En Venezuela</title>
+</head>
+
+<body>
+    <section>
+        <header>
+            <h1><a href="cines.html" >Cinex Unidos</a></h1>            
+            <form action="">
+                <input type="search" name="Busqueda" />
+                <input type="submit" name="entrea" />
+            </form>
+        </header>
+        <hr />
+        <aside>
+            <hgroup>
+                <h2>Navegación</h2>
+            </hgroup>
+        
+            <nav>
+                <ul>
+                    <li>
+                        <a href="./cines.html">CinexUnidos</a>
+                    </li>
+                    <li>
+                        <a href="./cines.html">Cines</a>
+                    </li>
+                    <li>
+                        <a href="./cartelera.html">Películas</a>
+                    </li>
+        
+                    <li>
+                        <details>
+                            <summary>Promociones</summary>
+                            <ol>
+                                <li>
+                                    <a href="./seleccion_carameleria.html#Promociones">Comida</a>
+                                </li>
+                                <li>
+                                    <a href="./seleccion_carameleria.html#Promociones">Entradas</a>
+                                </li>
+                            </ol>
+                        </details>
+                    </li>
+        
+                    <li>
+                        <a href="./seleccion_carameleria.html">Caramelería</a>
+                    </li>
+        
+                    <li>
+                        <details>
+                            <summary>Preferencias</summary>
+                            <ol>
+                                <li>
+                                    <a href="">Temas</a>
+                                </li>
+                                <li>
+                                    <a href="./cines_fav.html">Cines favoritos</a>
+                                </li>
+                                <li>
+                                    <a href="./pelis_vistas.html">Películas vistas</a>
+                                </li>
+                                <li>
+                                    <a href="./ingles.html">Idioma</a>
+                                </li>
+                            </ol>
+                        </details>
+                    </li>
+        
+                </ul>
+            </nav>
+        
+            <br>
+            <footer>
+                <small> ¿Necesitas ayuda? </small>
+                <small> <a href="">Contactanos</a> </small>
+            </footer>
+            <hr />
+        
+        </aside>
+        
+        <main>
+
+            <hgroup>
+                <h1>Formas de Pago</h1>
+            </hgroup>
+
+			<form>
+                <input type="radio" id="td" name="metodo" value="TarjetaDebito">
+                <label for="td">Tarjeta de Debito</label><br>
+                <input type="radio" id="tc" name="metodo" value="TarjetaCredito">
+                <label for="tc">Tarjeta de Credito</label><br>
+                <input type="radio" id="pg" name="metodo" value="PagoMovil">
+                <label for="pg">Pago Movil</label><br>
+			</form>
+
+            <br>
+            <form action="./factura.html">
+                <fieldset>
+
+                    <hgroup>
+                        <h1>Datos de la Tarjeta de Debito</h1>
+                    </hgroup>
+
+                    <article>
+                        <hgroup>
+                            <h1>Cédula</h1>
+                        </hgroup>
+                        <label for="V">V</label>
+                        <label for="cedula"></label>
+                        <input type="text" id="cedula" name="cedula" value=""><br>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h1>Llave de Tarjeta de Debito</h1>
+                        </hgroup>
+                        <label for="td"></label>
+                        <input type="text" id="td" name="td" value=""><br>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h1>Fecha de Vencimiento</h1>
+                        </hgroup>
+                        <label for="fv"></label>
+                        <input type="date" id="fv" name="fv" value="Fecha"><br>
+                        <label for="cvv"></label>
+                        <input type="text" id="cvv" name="cvv" value="CVV"><br>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h1>Nombre del tarjetahabiente</h1>
+                        </hgroup>
+                        <label for="datos td"></label>
+                        <input type="text" id="datos_td" name="datos_td" value=""><br>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h1>Tipo de Cuenta</h1>
+                        </hgroup>
+                        <form>
+                            <input type="radio" id="ahorro" name="tipo_cuenta" value="Ahorro">
+                            <label for="ahorro">Ahorro</label><br>
+                            <input type="radio" id="corriente" name="tipo_cuenta" value="Corriente">
+                            <label for="corriente">Corriente</label><br>
+                        </form>
+                        <br>
+                    </article>
+
+                    <input type="submit" value="Realizar Pago">
+                </fieldset>
+            </form>
+
+            <form action="./factura.html">
+                <fieldset>
+                    <article>
+                        <hgroup>
+                            <h1>Datos del PagoMovil</h1>
+                        </hgroup>
+                        <ul>
+                            <li>
+                                <b>Banco beneficiario:</b> Banco de Venezuela
+                            </li>
+                            <li>
+                                <b>Cedula del beneficiario:</b> 12345678
+                            </li>
+                            <li>
+                                <b>Numero de telefono beneficiario:</b> 0434-1234567
+                            </li>
+                            <li>
+                                <b>Nombre del beneficiario:</b> Cinex Unidos
+                            </li>
+                        </ul>
+                    </article>
+                    
+                    <article>
+                        <hgroup>
+                            <h1>Numero de Referencia</h1>
+                        </hgroup>
+                        <label for="referencia"></label>
+                        <input type="text" id="referencia" name="referencia" value=""><br>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h1>Numero de telefono emisor</h1>
+                        </hgroup>
+                        <label for="telefono"></label>
+                        <input type="text" id="telefono" name="telefono" value=""><br>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h1>Monto a pagar</h1>
+                        </hgroup>
+                        <label for="monto"></label>
+                        <input type="text" id="monto" name="monto" value="0,0Bs" disabled><br>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h1>Fecha de Pago</h1>
+                        </hgroup>
+                        <label for="Fecha"></label>
+                        <input type="date" name="Fecha" id="FechaPagoMovil">
+                    </article>
+                
+                    <input type="submit" value="Realizar Pago">
+
+                </fieldset>
+            </form>
+
+            <form action="./factura.html">
+                <fieldset>
+
+                    <hgroup>
+                        <h1>Datos de la Tarjeta de Credito</h1>
+                    </hgroup>
+
+                    <article>
+                        <hgroup>
+                            <h1>Cédula</h1>
+                        </hgroup>
+                        <label for="V">V</label>
+                        <label for="cedula"></label>
+                        <input type="text" id="cedula" name="cedula" value=""><br>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h1>Numero de tarjeta de credito</h1>
+                        </hgroup>
+                        <label for="td"></label>
+                        <input type="text" id="td" name="td" value=""><br>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h1>Fecha de Vencimiento</h1>
+                        </hgroup>
+                        <label for="fv"></label>
+                        <input type="date" id="fv" name="fv" value="Fecha"><br>
+                        <label for="cvv"></label>
+                        <input type="text" id="cvv" name="cvv" value="CVV"><br>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h1>Nombre del tarjetahabiente</h1>
+                        </hgroup>
+                        <label for="datos td"></label>
+                        <input type="text" id="datos_td" name="datos_td" value=""><br>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h1>Tipo de Cuenta</h1>
+                        </hgroup>
+                        <form>
+                            <input type="radio" id="amerexpress" name="tipo_cuenta" value="Amerexpress">
+                            <label for="amerexpress">American Express</label><br>
+                            <input type="radio" id="master" name="tipo_cuenta" value="Mastercard">
+                            <label for="master">Mastercard</label><br>
+                            <input type="radio" id="visa" name="tipo_cuenta" value="Visa">
+                            <label for="visa">Visa</label><br>
+                        </form>
+                        <br>
+                    </article>
+                
+                    <input type="submit" value="Realizar Pago">
+
+                </fieldset>
+            </form>
+
+        </main>
+    </section>
+</body>
+
+</html>
