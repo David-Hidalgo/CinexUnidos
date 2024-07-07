@@ -1,13 +1,154 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+    <title>Cines En Venezuela</title>
+</head>
+
+<body>
+    <section>
+        <header>
+            <h1><a href="cines.html">Cinex Unidos</a></h1>
+            <form action="">
+                <label for="search"></label>
+                <input title="Busqueda" type="search" name="Busqueda" value="Buscar películas" />
+                <button type="button">Buscar</button>
+            </form>
+            <br />
+            <h2><a href="">Notificaciones</a></h2>
+            <label for="Ubicacion"></label>
+            <select title="Ubicacion" name="Ubicacion">
+                <option value="Caracas">Caracas</option>
+                <option value="Maracay">Maracay</option>
+                <option value="Valencia">Valencia</option>
+                <option value="Margarita">Margarita</option>
+                <option value="Maracaibo">Maracaibo</option>
+                <option value="Maturin">Maturin</option>
+                <option value="Barquisimento">Barquisimento</option>
+                <option value="Puerto Ordaz">Puerto Ordaz</option>
+            </select>
+        
+        </header>
+        <hr />
+        <aside>
+            <hgroup>
+            </hgroup>
+            <h2>Navegación</h2>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="./cines.html">Cines</a>
+                    </li>
+                    <li>
+                        <a href="./cartelera.html">Películas</a>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Promociones</summary>
+                            <ol>
+                                <li>
+                                    <a href="./seleccion_carameleria.html#Promociones">Comida</a>
+                                </li>
+                                <li>
+                                    <a href="./cartelera.html#Promociones">Entradas</a>
+                                </li>
+                            </ol>
+                        </details>
+                    </li>
+                    <li>
+                        <a href="./seleccion_carameleria.html">Caramelería</a>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Preferencias</summary>
+                            <ol>
+                                <!--<li>
+        									<a href="">Temas</a>
+        								</li> -->
+                                <li>
+                                    <a href="./cines_fav.html">Cines favoritos</a>
+                                </li>
+                                <li>
+                                    <a href="./pelis_vistas.html">Películas vistas</a>
+                                </li>
+                                <li>
+                                    <a href="./ingles.html">Idioma</a>
+                                </li>
+                            </ol>
+                        </details>
+                    </li>
+                </ul>
+            </nav>
+            <br>
+            <hr />
+            <footer>
+                <small> ¿Necesitas ayuda? </small>
+                <small> <a href="">Contactanos</a> </small>
+            </footer>
+        </aside>
+        <hr />
+        <main>
+            <section>
+                <h2>Encuentra un cine cerca de tí </h2>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d83793.05530585865!2d-66.89309704394016!3d10.471751783728608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scines!5e0!3m2!1ses-419!2sus!4v1716674880511!5m2!1ses-419!2sus"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>
+            <h2>Cinex Unidos en Venezuela</h2>
+            <p>En Venezuela tenemos una amplia selección de cines, entre los cuales se encuentran:</p>
+            <nav>
+                <ul>
+                    <li>
+                        <article>
+                            <a href="./cartelera.html">
+                                <h3>El Pueblo del Hatillo</h3>
+                            </a>
+                            <p>Es una cadena de cines que cuenta con 10 salas en el país.</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a href="./cartelera.html">
+                                <h3>Los Naranjos</h3>
+                            </a>
+                            <p>Es una cadena de cines que cuenta con 10 salas en el país.</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a href="./cartelera.html">
+                                <h3>Concresa</h3>
+                            </a>
+                            <p>Es una cadena de cines que cuenta con 10 salas en el país.</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a href="./cartelera.html">
+                                <h3>Las Mercedes</h3>
+                            </a>
+                            <p>Es una cadena de cines que cuenta con 10 salas en el país.</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a href="./cartelera.html"><h3>La Trinidad</h3></a>
+                                <p>Es una cadena de cines que cuenta con 10 salas en el país.</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <a href="./cartelera.html"><h3>Chacaito</h3></a>
+                                <p>Es una cadena de cines que cuenta con 10 salas en el país.</p>
+                        </article>
+                    </li>
+                </ul>
+            </nav>
+        </main>
+    </section>
+</body>
+
 </html>
