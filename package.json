@@ -1,26 +1,27 @@
 {
-	"name": "cinexunidos",
-	"version": "1.0.0",
-	"description": "Proyeco de Programación Web",
-	"main": "index.ts",
-	"scripts": {
-		"test": "test"
+	"author": "David Hidalgo, Daniel Castellanos, Rafael Marcano",
+	"bugs": {
+		"url": "https://github.com/David-Hidalgo/CinexUnidos/issues"
 	},
+	"description": "Proyeco de Programación Web",
+	"devDependencies": {
+		"vite": "^5.3.1"
+	},
+	"homepage": "https://github.com/David-Hidalgo/CinexUnidos#readme",
+	"keywords": [
+		"cine"
+	],
+	"name": "cinexunidos",
+	"private": true,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/David-Hidalgo/CinexUnidos.git"
 	},
-	"keywords": ["cine"],
-	"author": "David Hidalgo, Daniel Castellanos, Rafael Marcano",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/David-Hidalgo/CinexUnidos/issues"
+	"scripts": {
+		"build": "vite build",
+		"dev": "vite",
+		"preview": "vite preview"
 	},
-	"homepage": "https://github.com/David-Hidalgo/CinexUnidos#readme",
-	"dependencies": {
-		"typescript": "^5.4.5"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.7.3"
-	}
+	"type": "module",
+	"version": "0.0.0"
 }
