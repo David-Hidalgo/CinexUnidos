@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png" />
-    <title>Cines En Venezuela</title>
-    <link rel="stylesheet" href="./style.css" />
-</head>
-
-<body>
+document.querySelector('#header').outerHTML = `
     <header class="toolbar reserve-aside-space">
         <div class="logo">
                 <img src="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png" width="50px"
@@ -34,8 +24,8 @@
             <option value="Barquisimento">Barquisimento</option>
             <option value="Puerto Ordaz">Puerto Ordaz</option>
         </select>
-    </header>
-
+    </header>`
+document.querySelector('#aside').outerHTML =`
     <aside>
         <h2>Navegación</h2>
         <nav>
@@ -94,17 +84,6 @@
                             </li>
                             <li>
                                 <div id="google_translate_element"></div>
-
-                                <script type="text/javascript">
-                                function googleTranslateElementInit() {
-                                new google.translate.TranslateElement({
-                                    pageLanguage: 'es',
-                                    includedLanguages: 'es,en' // remove this line if you want to include all languages
-                                },'google_translate_element');
-                                }
-                                </script>
-
-                                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                             </li>
                         </ol>
                     </details>
@@ -117,58 +96,5 @@
             <small> ¿Necesitas ayuda? </small>
             <small> <a href="">Contáctanos</a> </small>
         </footer>
-    </aside>
-    <hr />
-    <main class="reserve-aside-space">
-        <section class="movie-theaters-near-you">
-            <h2>Encuentra un cine cerca de tí </h2>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d83793.05530585865!2d-66.89309704394016!3d10.471751783728608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scines!5e0!3m2!1ses-419!2sus!4v1716674880511!5m2!1ses-419!2sus"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <h2>Cinex Unidos en Venezuela</h2>
-            <p>En Venezuela tenemos una amplia selección de cines, entre los cuales se encuentran:</p>
-            <nav class="movie-theater-list">
-                <ul id="cinesDisponibles" class="card-grid">
-                    
-                </ul>
-            </nav>
-        </section>
-    </main>
+    </aside>`
 
-</body>
-<script>
-    const backendUrl = "https://cinexunidos-production.up.railway.app/"
-    function cargarCines() {
-        navCines = document.getElementById("cinesDisponibles")
-        fetch("https://cinexunidos-production.up.railway.app/theatres")
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(cine => {
-                    let li = document.createElement("li");
-                    li.classList.add("card");
-                    let article = document.createElement("article")
-                    let a = document.createElement("a")
-                    let h3 = document.createElement("h3")
-                    let figure = document.createElement("figure")
-                    let img = document.createElement("img")
-                    img.src = backendUrl + cine.images[0]
-                    img.alt = cine.id
-                    figure.appendChild(img)
-
-                    a.href = "./cartelera.html?cine=" + cine.id
-                    h3.innerText = cine.name
-                    h3.id = cine.id
-                    a.appendChild(h3)
-                    article.appendChild(a)
-                    article.appendChild(figure)
-                    li.appendChild(article)
-                    navCines.appendChild(li)
-                });
-            })
-
-    }
-    cargarCines()
-</script>
-
-</html>

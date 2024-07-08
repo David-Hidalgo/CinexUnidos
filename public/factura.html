@@ -2,111 +2,38 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cines En Venezuela</title>
 </head>
 
 <body>
-    <section>
-        <header>
-            <h1><a href="cines.html" >Cinex Unidos</a></h1>            
-            <form action="">
-                <input title="Busqueda" type="search" name="Busqueda" />
-                <input type="submit" name="entrea" />
-            </form>
-        </header>
-        <hr />
-        <aside>
-            <hgroup>
-                <h2>Navegación</h2>
-            </hgroup>
-        
-            <nav>
-                <ul>
-                    <li>
-                        <a href="./cines.html">CinexUnidos</a>
-                    </li>
-                    <li>
-                        <a href="./cines.html">Cines</a>
-                    </li>
-                    <li>
-                        <a href="./cartelera.html">Películas</a>
-                    </li>
-        
-                    <li>
-                        <details>
-                            <summary>Promociones</summary>
-                            <ol>
-                                <li>
-                                    <a href="./seleccion_carameleria.html#Promociones">Comida</a>
-                                </li>
-                                <li>
-                                    <a href="./seleccion_carameleria.html#Promociones">Entradas</a>
-                                </li>
-                            </ol>
-                        </details>
-                    </li>
-        
-                    <li>
-                        <a href="./seleccion_carameleria.html">Caramelería</a>
-                    </li>
-        
-                    <li>
-                        <details>
-                            <summary>Preferencias</summary>
-                            <ol>
-                                <li>
-                                    <a href="">Temas</a>
-                                </li>
-                                <li>
-                                    <a href="./cines_fav.html">Cines favoritos</a>
-                                </li>
-                                <li>
-                                    <a href="./pelis_vistas.html">Películas vistas</a>
-                                </li>
-                                <li>
-                                    <a href="./ingles.html">Idioma</a>
-                                </li>
-                            </ol>
-                        </details>
-                    </li>
-        
-                </ul>
-            </nav>
-        
-            <br>
-            <footer>
-                <small> ¿Necesitas ayuda? </small>
-                <small> <a href="">Contactanos</a> </small>
-            </footer>
-            <hr />
-        
-        </aside>
+    <header id="header"></header>
+    <aside id="aside"></aside>
+    <script type="module" src="./src/js/mainAside.js"></script>
 
-        <main>
+    <main class="reserve-aside-space">
 
-            <hgroup>
-                <h1>Factura</h1>
-            </hgroup>
+        <hgroup>
+            <h1>Factura</h1>
+        </hgroup>
 
-            <article>
-                <p><b>Nombre:</b> Rafael Marcano</p>
-                <p><b>Cédula:</b> 30.005.364</p>
-                <p><b>Sala y Asiento:</b> A4-F12</p>
-                <p><b>Película:</b> Oppenheimer</p>
-                <p><b>Ticket:</b> TFJ82KM9</p>
-                <strong>Total: US$ 16</strong>
-            </article>
+        <article>
+            <p><b>Nombre:</b> Rafael Marcano</p>
+            <p><b>Cédula:</b> 30.005.364</p>
+            <p><b>Sala y Asiento:</b> A4-F12</p>
+            <p><b>Película:</b> Oppenheimer</p>
+            <p><b>Ticket:</b> TFJ82KM9</p>
+            <strong>Total: US$ 16</strong>
+        </article>
 
-            <img src="Images/Frame.svg" alt="QR" width="20%">
+        <img src="Images/Frame.svg" alt="QR" width="20%">
 
-            <br>
-            <a href="./cines.html">
-                <button type="button">Confirmar</button>
-            </a>
+        <br>
+        <a href="./cines.html">
+            <button type="button">Confirmar</button>
+        </a>
 
-        </main>
-    </section>
+    </main>
 </body>
 
 </html>
