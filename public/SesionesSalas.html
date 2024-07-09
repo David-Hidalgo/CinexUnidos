@@ -20,7 +20,7 @@
 				<img id="imagenCine" src="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png" alt="imagen de cine" width="30%" />
 			<h2>En cartelera</h2>
 		</hgroup>
-		<section id="SalasDeCine">
+		<section id="SalasDeCine" class="movie-theater-list">
 		</section>
 		<!-- <table role="presentation">
 			<colgroup>
@@ -191,9 +191,16 @@
 
 	<!-- #MARK:Inicio del artículo -->
 	<article popover id="popupSala">
-		<h2>Sala A6-41</h2>
+		<h2 id="nombreSala">Sala A6-41</h2>
+		<p>La película inicia a las: <time id="start-time" datetime="PT4H18M3S"></time></p>
+		<p>La película dura: <time id="runtime-movie" datetime="PT4H18M3S"></time></p>
+		<p>Rating: <span id="rating"></span></p>
+		<nav>
+			<ul>
 
-		<h7><a href="./pago.html"> Comprar</a>
+			</ul>
+		</nav>
+
 			<h7>
 	</article>
 	<!-- #MARK:fin del articulo -->
@@ -203,7 +210,10 @@
 	let url = window.location.href;
 	function cargarPelicula(id, runtimeD, ratingD, teatros) {
 		console.log(runtimeD);
-		const popUp = document.getElementById("PopUp")
+		const popUp = document.getElementById("popupSala")
+		const nombreSala = popUp.querySelector("#nombreSala")
+		nombreSala.textContent = `Sala ${teatros[2]} en ${teatros[0]}`
+		const startTime = popUp.querySelector("#start-time")
 		const runtime = popUp.querySelector("#runtime-movie")
 		const rating = popUp.querySelector("#rating")
 		runtime.textContent = runtimeD
@@ -213,66 +223,23 @@
 		minutos = numero % 60
 		console.log(teatros);
 		runtime.setAttribute('datetime', `PT${horas}H${minutos}M0S`)
+		startTime.textContent = teatros[3]
+
 		rating.textContent = ratingD
 		//agarrar el único hijo nav de popUp y agarrar su único hijo ul
+		console.log(popUp);
 		const nav = popUp.querySelector("nav")
 		const ul = nav.querySelector("ul")
 		console.log(id, runtimeD, ratingD, teatros);
 		ul.innerHTML = ""
 		//crear un li por cada teatro con un a que lleve a la página de ese teatro con la película
-		teatros.forEach(teatro => {
-			const li = document.createElement("li")
-			const a = document.createElement("a")
-			a.href = `./SesionesSalas.html?theatre=${teatro}&movie=${id}`
-			a.textContent = `Ver en ${teatro}`
-			li.appendChild(a)
-			ul.appendChild(li)
-		})
-	}
-
-	function cargarTodasLasascientos() {
-		fetch(`${backendUrl}theatres`)
-			.then(response => response.json())
-			.then(data => {
-				let peliculasUnicas = new Map();
-				console.log(data);
-				const salasDoc = document.getElementById("SalasDeCine")
-				data.forEach(teatro => {
-					teatro.auditoriums.forEach(sala => {
-						sala.showtimes.forEach(showtime => {
-							if (!peliculasUnicas.has(showtime.movie.id)) {
-								peliculasUnicas.set(showtime.movie.id, { name: showtime.movie.name, poster: showtime.movie.poster, runningTime: showtime.movie.runningTime, rating: showtime.movie.rating, teatros: new Set([teatro.id]) })
-							} else {
-								peliculasUnicas.get(showtime.movie.id).teatros.add(teatro.id)
-							}
-						})
-					})
-				})
-				for (const movie of peliculasUnicas) {
-					console.log(movie[1]);
-					const figure = document.createElement("figure")
-					const img = document.createElement("img")
-					const figcaption = document.createElement("figcaption")
-					const button = document.createElement("button")
-					console.log(movie[1].poster);
-					img.src = backendUrl + movie[1].poster
-					img.alt = `poster de ${movie[1].name}`
-					figcaption.textContent = movie[1].name
-					figure.setAttribute("class", "movie-poster")
-					button.type = "button"
-					button.setAttribute("popovertarget", "PopUp")
-					button.setAttribute("popovertargetaction", "toggle")
-
-					button.onclick = () => cargarPelicula(movie[0], movie[1].runningTime, movie[1].rating, movie[1].teatros)
-					button.textContent = "Ver Detalles"
-					figure.appendChild(img)
-					figure.appendChild(figcaption)
-					figure.appendChild(button)
-					figure.id = movie[1].id
-					salasDoc.appendChild(figure)
-
-				}
-			})
+		const li = document.createElement("li")
+		const a = document.createElement("a")
+		a.href = `./butacas.html?theatre=${teatros[0]}&sala=${teatros[1]}&pelicula=${id}`
+		a.textContent = `Ver en ${teatros[0]} en la sala ${teatros[1]}`
+		li.appendChild(a)
+		ul.appendChild(li)
+		
 	}
 
 	const query = url.split("?")[1]
@@ -286,43 +253,47 @@
 		const imagen = document.getElementById("imagenCine")
 		const titulo = document.getElementById("deCine")
 		fetch(`${backendUrl}theatres/${teatroId}/auditoriums`)
-			.then(response => response.json())
-			.then(data => {
-				// imagen.src = backendUrl + data.images[1]
-				titulo.textContent = titulo.textContent + " " + teatroId
-				let salasDoc = document.getElementById("SalasDeCine")
-				console.log(salasDoc);
-				console.log(data);
-				let showtimes = data.map(sala => sala.showtimes)
-				showtimes = showtimes.flat()
-
-				showtimes.forEach(showtime => {
-						if (peliId === (showtime.movie.id).toString()) {
-							console.log("entré");
-							const h1 = document.createElement("h1")
-							h1.textContent = showtime.movie.name
-							const a = document.createElement("a") 
-							const figure = document.createElement("figure")
-							const img = document.createElement("img")
-							const figcaption = document.createElement("figcaption")
-							const button = document.createElement("button")
-							img.src = backendUrl + showtime.movie.poster
-							img.alt = `poster de ${showtime.movie.name}`
-							figcaption.textContent = showtime.movie.name
-							figure.setAttribute("class", "movie-poster")
-							button.type = "button"
-							button.setAttribute("popovertarget", "popupSala")
-							button.setAttribute("popovertargetaction", "toggle")
-							button.onclick = () => cargarPelicula(showtime.movie.id, showtime.movie.runningTime, showtime.movie.rating, [url.split("=")[1]])
-							button.textContent = "Ver Detalles"
-							figure.appendChild(img)
-							figure.appendChild(figcaption)
-							figure.appendChild(button)
-							figure.id = showtime.movie.id
-							salasDoc.appendChild(figure)
-						}
-					})
+		.then(response => response.json())
+		.then(data => {
+			// imagen.src = backendUrl + data.images[1]
+			titulo.textContent = titulo.textContent + " " + teatroId
+			let salasDoc = document.getElementById("SalasDeCine")
+			const ul = document.createElement("ul")
+			ul.setAttribute("id", "cinesDisponibles")
+			data.forEach(sala => {
+				sala.showtimes.forEach(showtime => {
+					if (peliId === (showtime.movie.id).toString()) {
+						console.log("entré");
+						const li = document.createElement("li")
+						li.setAttribute("class", "card")
+						const figure = document.createElement("figure")
+						const img = document.createElement("img")
+						const figcaption = document.createElement("figcaption")
+						const button = document.createElement("button")
+						img.src = backendUrl + showtime.movie.poster
+						//haz la imagen más chiquita
+						img.style.width = "25%";
+	
+						img.alt = `poster de ${showtime.movie.name}`
+						figcaption.textContent = showtime.movie.name
+						figure.setAttribute("class", "movie-poster")
+						button.type = "button"
+						button.setAttribute("popovertarget", "popupSala")
+						button.setAttribute("popovertargetaction", "toggle")
+						button.onclick = () => cargarPelicula(showtime.id, showtime.movie.runningTime, showtime.movie.rating, [teatroId, sala.id,sala.name,showtime.startTime])
+						button.textContent = "Ver Detalles"
+						figure.appendChild(img)
+						figure.appendChild(figcaption)
+						figure.appendChild(button)
+						figure.id = showtime.movie.id
+						li.appendChild(figure)
+						ul.appendChild(li)
+					}
+				})
+				
 			})
+			salasDoc.appendChild(ul)
+		})
 	}
 
 	cargarFuncionesPorTeatroYPelícula()

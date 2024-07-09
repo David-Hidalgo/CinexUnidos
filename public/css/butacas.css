@@ -274,4 +274,39 @@
   }
   /* ---------------#MARK:Butacas--------------- */
 
-  
+  #asientos input[type="checkbox"] {
+    cursor: pointer;
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
+  }
+
+  #asientos input[type="checkbox"][class="disponible"]:hover {
+    transition: background-color 0.3s;
+    background-color: #64b1ff;
+  }
+
+  #asientos input[type="checkbox"][class="disponible"]:checked {
+    transition: background-color 0.3s;
+    background-color: #2b36ff;
+  }
+
+  #asientos input[type="checkbox"][class="disponible"]:checked:hover {
+    transition: background-color 0.3s;
+    background-color: rgb(162, 63, 255);
+  }
+
+  #asientos input[type="checkbox"][class="reservadoPorAlguienMas"] {
+    background-color: rgb(216, 28, 28);
+    cursor: not-allowed;
+  }
+
+
+
+  #asientos input[type="checkbox"][class="Ocupado"] {
+    background-color: rgb(221, 194, 44);
+    cursor: not-allowed;
+  }
