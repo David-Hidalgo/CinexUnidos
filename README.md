@@ -10,12 +10,13 @@ el archivo inicial de html es [Pagina Inicial](index.html) que se encuentra en l
 2) cd en la carpeta
 3) npm --install
 4) 
-```bash
-npm run dev
-```
-ó
+si tiene node 22
 ```bash
 node --run dev
+```
+ó si tiene node inferior 
+```bash
+npm run dev
 ```
 ## para navegar hasta las butacas:
 1. seleccione un cine
@@ -23,3 +24,4 @@ node --run dev
     2.1 aparecerá un popUp con detalles y varios o un link indicando el teatro disponible (varios si accedió a la cartelera a travéz de la side bar)
 3.   dar click en ver detalles de una de las funciones que aparecen 
 4.  dar click en el link de ver en *
+5. bienvenido a las butacas
