@@ -2,424 +2,267 @@
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
-	<link rel="stylesheet" href="./../style.css" />
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="./css/butacas.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+		rel="stylesheet">
+	<title>CinexUnidos</title>
 	<link rel="icon" href="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png" />
-	<title>Butacas</title>
 </head>
 
 <body>
-	<section>
 	<header id="header"></header>
-	<br>
 	<aside id="aside"></aside>
 	<script type="module" src="./src/js/mainAside.js"></script>
-		<hr />
-		<main class="reserve-aside-space">
-			<table role="presentation">
-				<colgroup>
-					<col style="border: 2px solid rgb(179, 30, 30)">
-					<col span="7">
-				</colgroup>
-				<thead>
-					<tr>
-						<th scope="col">horas</th>
-						<th scope="col">
-							Lunes
-						</th>
-						<th scope="col">
-							Martes
-						</th>
-						<th scope="col">
-							Miercoles
-						</th>
-						<th scope="col">
-							Jueves
-						</th>
-						<th scope="col">
-							Viernes
-						</th>
-						<th scope="col">
-							Sabado
-						</th>
-						<th scope="col">
-							Domingo
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th role="rowheader">
-							<time datetime="8:00">8 A.M.</time>
-						</th>
-						<td rowspan="3">
-							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 4</time></button>
+	<hr />
+	<main class="reserve-aside-space">
+		<hgroup>
+			<h1 id="deCine">Catálogo de películas</h1>
+			<img id="imagenCine" src="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png"
+				alt="imagen">
+			<h2>En cartelera</h2>
+		</hgroup>
+		<section id="ascientos">
+        </section>
+        <button type="button" onclick="enviarCambios()">enviar cambios</button>
 
-						</td>
-						<td rowspan="1">
-
-						</td>
-						<td rowspan="2">
-							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 5</time></button>
-							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 4</time></button>
-						</td>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="9:00">9 A.M.</time>
-						</th>
-						<td rowspan="2">
-							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 5</time></button>
-							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 4</time></button>
-						</td>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="10:00">10 A.M.</time>
-						</th>
-						<td rowspan="2">
-						</td>
-						<td rowspan="2">
-
-						</td>
-						<td rowspan="2">
-						</td>
-						<td rowspan="2">
-							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 5</time></button>
-							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 4</time></button>
-						</td>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="11:00">11 A.M.</time>
-						</th>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="12:00">12 P.M.</time>
-						</th>
-						<td>
-							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
-						</td>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="13:00">1 P.M.</time>
-						</th>
-						<td>
-							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
-						</td>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="14:00">2 P.M.</time>
-						</th>
-						<td>
-							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
-						</td>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="15:00">3 P.M.</time>
-						</th>
-						<td>
-							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
-						</td>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="16:00">4 P.M.</time>
-						</th>
-						<td>
-							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
-						</td>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="17:00">5 P.M.</time>
-						</th>
-						<td>
-							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
-						</td>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="18:00">6 P.M.</time>
-						</th>
-						<td>
-							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
-						</td>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="19:00">7 P.M.</time>
-						</th>
-						<td>
-							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
-						</td>
-					</tr>
-					<tr>
-						<th role="rowheader">
-							<time datetime="20:00">8 P.M.</time>
-						</th>
-						<td>
-							<button popovertarget="popupSala"><time datetime="15:00">Sala 3</time></button>
-						</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>
-							<button popovertarget="popupSala"><time datetime="PT2H20M">Sala 5</time></button>
-						</td>
-
-					</tr>
-				</tbody>
-			</table>
-
-		</main>
-		<hr />
-		<footer>
-			<small> Necesitas ayuda? </small>
-			<small> <a href="">contactenos</a> </small>
-		</footer>
+	</main>
 	</section>
-
+	<div popover id="PopUp">
+		<p>
+			<strong>la película dura: <time id="runtime-movie" datetime="PT4H18M3S"></time></strong>
+			<br>
+			<strong>Censura: <span id="rating"></span></strong>
+		<nav><ul></ul></nav>
+		</p>
+	</div>
 </body>
+<script>
+	const backendUrl = "https://cinexunidos-production.up.railway.app/"
+	let urlActual = window.location.href;
+	function cargarPelicula(id, runtimeD, ratingD,teatros) {
+		console.log(runtimeD);
+		const popUp = document.getElementById("PopUp")
+		const runtime = popUp.querySelector("#runtime-movie")
+		const rating = popUp.querySelector("#rating")
+		runtime.textContent = runtimeD
+		numeroS = runtimeD.split(" ")[0]
+		numero = parseInt(numeroS)
+		horas = Math.floor(numero / 60)
+		minutos = numero % 60
+		console.log(teatros);
+		runtime.setAttribute('datetime', `PT${horas}H${minutos}M0S`)
+		rating.textContent = ratingD
+		//agarrar el único hijo nav de popUp y agarrar su único hijo ul
+		const nav = popUp.querySelector("nav")
+		const ul = nav.querySelector("ul")
+		console.log(id,runtimeD,ratingD,teatros);
+		ul.innerHTML = ""
+		//crear un li por cada teatro con un a que lleve a la página de ese teatro con la película
+		teatros.forEach(teatro => {
+			const li = document.createElement("li")
+			const a = document.createElement("a")
+			a.href = `./SesionesSalas.html?theatre=${teatro}&movie=${id}`
+			a.textContent = `Ver en ${teatro}`
+			li.appendChild(a)
+			ul.appendChild(li)
+		})
+	}
+    
+    const query = urlActual.split("?")[1]
+    let teatroId = query.split("&")[0]
+    let auditorioId = query.split("&")[1]
+    let showtimeId = query.split("&")[2]
+    teatroId = teatroId.split("=")[1]
+    auditorioId = auditorioId.split("=")[1]
+    showtimeId = showtimeId.split("=")[1]
+    const setAsientosModificados = new Set();
+    const setAsientosAgregados = new Set();
+
+    function enviarCambios() {
+        console.log("entré");
+        console.log("agregados",setAsientosAgregados);
+        console.log("Modificados",setAsientosModificados);
+        setAsientosModificados.forEach(asiento => {
+            if (setAsientosAgregados.has(asiento)) {
+                deReservar(asiento)
+                setAsientosAgregados.delete(asiento)
+            } else {
+                reservar(asiento)
+                setAsientosAgregados.add(asiento)   
+            }
+        })
+        setAsientosModificados.clear()
+    }
+
+     function deReservar(value) {
+         fetch(`${backendUrl}theatres/${teatroId}/auditoriums/${auditorioId}/showtimes/${showtimeId}/reserve`,{
+            method: "delete",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "seat": value,
+            })
+        })
+        .then(response => response.json())
+        .then( (data) => {
+            console.log("quitar",data);
+            //haz que espere un segundo antes de seguir
+            setTimeout(() => {
+                console.log("quitar",data)
+                console.log("quitar",value)
+                input = document.getElementById(value)
+                input.checked = false
+                input.disabled = false
+            }, 100);
+
+        })
+    }
+
+     function reservar(value) {
+        fetch(`${backendUrl}theatres/${teatroId}/auditoriums/${auditorioId}/showtimes/${showtimeId}/reserve`,{
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "seat": value,
+            })
+        })
+        .then(response => response.json())
+        .then((data) => {
+            console.log("agregar",data)
+            console.log("agregar",value)
+            setTimeout(() => {
+                input = document.getElementById(value)
+                input.disabled = false
+                input.checked = true
+            }, 100);
+        })
+    }
+    function cambiarEstado(value) {
+        console.log("cambia",value)
+            
+            input = document.getElementById(value)
+            if (setAsientosModificados.has(value)) {
+                if (setAsientosAgregados.has(value)) {
+                    input.disabled = false
+                    input.checked = true
+                    setAsientosModificados.add(value)
+                    setAsientosAgregados.delete(value)
+                } else {
+                    input.disabled = false
+                    input.checked = false
+                    setAsientosModificados.delete(value)
+                } 
+            } else {
+                if (setAsientosAgregados.has(value)) {
+                    input.disabled = false
+                    input.checked = false
+                    setAsientosModificados.add(value)
+                } else {
+                    input.disabled = false
+                    input.checked = true
+                    setAsientosModificados.add(value)
+                }
+            }
+        console.log("modificados",setAsientosModificados);
+        console.log("agregados",setAsientosAgregados);
+    }
+	function cargarAscientosPorSala() {
+		const imagen = document.getElementById("imagenCine")
+		const titulo = document.getElementById("deCine")
+		fetch(`${backendUrl}theatres/${teatroId}/auditoriums/${auditorioId}/showtimes/${showtimeId}`)
+			.then(response => response.json())
+			.then(data => {
+				imagen.src = backendUrl + data.movie.poster
+				titulo.textContent = "Viendo sesiones de" + " " + data.movie.name
+				const peliculas = document.getElementById("ascientos")
+                //crear una tabla con los ascientos de la sala 
+                tabla = document.createElement("table")
+                const showtime = data
+                for (const fila in showtime.seats) {
+                    const tr = document.createElement("tr")
+                    const th = document.createElement("th")
+                    th.textContent = fila
+                    tr.appendChild(th)
+                    if (Object.hasOwnProperty.call(showtime.seats, fila)) {
+                        const ascientos = showtime.seats[fila];
+                        console.log(ascientos);
+                        for (const asiento in ascientos) {
+                            const td = document.createElement("td")
+                            //crear un checkbox por cada asiento
+                            const input = document.createElement("input")
+                            input.type = "checkbox"
+                            input.id = fila+asiento
+                            input.value = asiento
+                            //si el valor de asiento es -1, el checkbox debe estar deshabilitado, si es 0 vacío y si es 1 ocupado, si es 2 debe estar seleccionado y desabilitado
+                            if (ascientos[asiento] === -1) {
+                                input.disabled = true
+                                input.setAttribute("class", "no-disponible")
+                            } else if (ascientos[asiento] === 0) {
+                                input.checked = false
+                                input.disabled = false
+                                input.setAttribute("class", "disponible")
+                                input.onchange = () => cambiarEstado(input.id)
+                                td.appendChild(input)
+                            } else if (ascientos[asiento] === 1) {
+                                input.checked = true
+                                input.disabled = true
+                                input.setAttribute("class", "Ocupado")
+                                td.appendChild(input)
+                            } else if (ascientos[asiento] === 2) {
+                                input.checked = true
+                                input.disabled = true
+                                input.setAttribute("class", "reservadoPorAlguienMas")
+                                td.appendChild(input)
+                            }
+                            tr.appendChild(td)
+                        }
+                        tabla.appendChild(tr)
+                    }
+                }
+                peliculas.appendChild(tabla)
+            })
+	}
+
+	cargarAscientosPorSala()
+
+    const evtSource = new EventSource(`${backendUrl}theatres/${teatroId}/auditoriums/${auditorioId}/showtimes/${showtimeId}/reservation-updates`)
+        evtSource.onmessage = function (event) {
+            
+            const data = JSON.parse(event.data)
+            console.log("del evento",data);
+            console.log(data.seat);
+            const asiento = document.getElementById(data.seat)
+            if (data.message === "The seat has been reserved.") {
+                asiento.checked = true
+                asiento.disabled = true
+                setAsientosModificados.delete(asiento.id)
+                setAsientosAgregados.add(asiento.id)
+                asiento.setAttribute("class", "reservadoPorAlguienMas")
+            } else if (data.message === "The seat has been released.") {
+                asiento.checked = false
+                asiento.disabled = false
+                asiento.onchange = () => cambiarEstado(asiento.id)
+                asiento.setAttribute("class", "disponible")
+            }
+        }
+</script>
+<script type="text/javascript">
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'es',
+			includedLanguages: 'es,en' // remove this line if you want to include all languages
+		}, 'google_translate_element');
+	}
+</script>
+
+<script type="text/javascript"
+	src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </html>
-
-<article popover id="popupSala">
-	<h2>Sala A6-41</h2>
-	<form action="comprar">
-		<table>
-			<tbody>
-				<tr>
-					<td>
-						<input type="checkbox" name="Asiento" id="1,1">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="1,2">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="1,3">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="1,4">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="1,5">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="1,6">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="1,7">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="1,8">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="1,9">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="1,10">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="checkbox" name="Asiento" id="2,1">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="2,2">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="2,3">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="2,4">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="2,5">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="2,6">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="2,7">
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="2,8" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="2,9" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="2,10" disabled>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="checkbox" name="Asiento" id="3,1">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="3,2">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="3,3">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="3,4">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="3,5">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="3,6">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="3,7">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="3,8">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="3,9">
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="3,10" disabled>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="checkbox" name="Ocupado" id="4,1" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="4,2" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="4,3" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="4,4">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="4,5">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="4,6">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="4,7">
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="4,8" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="4,9" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="4,10" disabled>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="checkbox" name="Asiento" id="5,8">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="5,2">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="5,3">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="5,4">
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="5,5" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="5,6" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="5,7">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="5,8">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="5,9">
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="5,10" disabled>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="checkbox" name="Asiento" id="6,1">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="6,2">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="6,3">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="6,4">
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="6,5" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="6,7">
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="6,7" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="6,8" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="6,9">
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="6,10" disabled>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="checkbox" name="Ocupado" id="7,1" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="7,2" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="7,3" disabled>
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="7,4">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="7,5">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="7,6">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="7,7">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="7,8">
-					</td>
-					<td>
-						<input type="checkbox" name="Asiento" id="7,9">
-					</td>
-					<td>
-						<input type="checkbox" name="Ocupado" id="7,10" disabled>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</form>
-	<h7><a href="./pago.html"> Comprar</a>
-		<h7>
-</article>

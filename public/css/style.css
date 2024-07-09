@@ -112,7 +112,8 @@ hr {
   transition: border-color 0.25s;
 }
 .searchbar button:hover {
-  border-color: #646cff;
+  transition: background-color 0.25s;
+  background-color: #3f49ff;
 }
 .searchbar button:focus,
 .searchbar button:focus-visible {

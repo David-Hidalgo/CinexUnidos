@@ -1,10 +1,10 @@
 document.querySelector('#header').outerHTML = `
     <header class="toolbar reserve-aside-space">
-        <div class="logo">
-                <img src="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png" width="50px"
+        <a href="/"><div class="logo">
+                <img alt="CinexUnidos" src="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png" width="50px"
                     height="50px" />
-                <h1><a href="/">Cinex Unidos</a></h1>
-        </div>
+                <h1>Cinex Unidos</h1>
+        </div></a>
 
         <form class="searchbar" action="">
             <label for="search"></label>

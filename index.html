@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png" />
-    <title>Cines En Venezuela</title>
-    <link rel="stylesheet" href="./style.css" />
+    <title>CinexUnidos</title>
+    <link rel="stylesheet" href="./public/css/style.css" />
 </head>
 
 <body>
     <header class="toolbar reserve-aside-space">
-        <div class="logo">
-                <img src="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png" width="50px"
+        <a href="/"><div class="logo">
+                <img alt="CinexUnidos" src="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png" width="50px"
                     height="50px" />
-                <h1><a href="/">Cinex Unidos</a></h1>
-        </div>
+                <h1>Cinex Unidos</h1>
+        </div></a>
 
         <form class="searchbar" action="">
             <label for="search"></label>
@@ -122,7 +122,7 @@
     <main class="reserve-aside-space">
         <section class="movie-theaters-near-you">
             <h2>Encuentra un cine cerca de tí </h2>
-            <iframe
+            <iframe title="Cines en Venezuela"
                 src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d83793.05530585865!2d-66.89309704394016!3d10.471751783728608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scines!5e0!3m2!1ses-419!2sus!4v1716674880511!5m2!1ses-419!2sus"
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -156,14 +156,14 @@
                     img.alt = cine.id
                     figure.appendChild(img)
 
-                    a.href = "./cartelera.html?cine=" + cine.id
+                    a.href = "./cartelera.html?theatre=" + cine.id
                     h3.innerText = cine.name
                     h3.id = cine.id
-                    a.appendChild(h3)
-                    article.appendChild(a)
+                    article.appendChild(h3)
                     article.appendChild(figure)
                     li.appendChild(article)
-                    navCines.appendChild(li)
+                    a.appendChild(li)
+                    navCines.appendChild(a)
                 });
             })
 
