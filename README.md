@@ -17,3 +17,9 @@ npm run dev
 ```bash
 node --run dev
 ```
+## para navegar hasta las butacas:
+1. seleccione un cine
+2. seleccione ```ver detalles``` de una película<br>
+    2.1 aparecerá un popUp con detalles y varios o un link indicando el teatro disponible (varios si accedió a la cartelera a travéz de la side bar)
+3.   dar click en ver detalles de una de las funciones que aparecen 
+4.  dar click en el link de ver en *
