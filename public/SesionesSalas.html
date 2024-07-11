@@ -235,7 +235,7 @@
 		//crear un li por cada teatro con un a que lleve a la página de ese teatro con la película
 		const li = document.createElement("li")
 		const a = document.createElement("a")
-		a.href = `./Butacas.html?theatre=${teatros[0]}&sala=${teatros[1]}&pelicula=${id}`
+		a.href = `./butacas.html?theatre=${teatros[0]}&sala=${teatros[1]}&pelicula=${id}`
 		a.textContent = `Ver en ${teatros[0]} en la sala ${teatros[1]}`
 		li.appendChild(a)
 		ul.appendChild(li)

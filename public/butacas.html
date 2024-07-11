@@ -88,10 +88,14 @@
         console.log("Modificados",setAsientosModificados);
         setAsientosModificados.forEach(asiento => {
             if (setAsientosAgregados.has(asiento)) {
-                deReservar(asiento)
+                setTimeout(() => {
+                    deReservar(asiento)
+                }, 100);
                 setAsientosAgregados.delete(asiento)
             } else {
-                reservar(asiento)
+                setTimeout(() => {
+                    reservar(asiento)
+                }, 100);
                 setAsientosAgregados.add(asiento)   
             }
         })
@@ -118,6 +122,8 @@
                 input = document.getElementById(value)
                 input.checked = false
                 input.disabled = false
+                input.setAttribute("class", "disponible")
+
             }, 100);
 
         })
@@ -141,35 +147,36 @@
                 input = document.getElementById(value)
                 input.disabled = false
                 input.checked = true
+                input.setAttribute("class", "disponible")
             }, 100);
         })
     }
     function cambiarEstado(value) {
         console.log("cambia",value)
-            
-            input = document.getElementById(value)
-            if (setAsientosModificados.has(value)) {
-                if (setAsientosAgregados.has(value)) {
-                    input.disabled = false
-                    input.checked = true
-                    setAsientosModificados.add(value)
-                    setAsientosAgregados.delete(value)
-                } else {
-                    input.disabled = false
-                    input.checked = false
-                    setAsientosModificados.delete(value)
-                } 
+        input = document.getElementById(value)
+        input.setAttribute("class", "disponible")
+        if (setAsientosModificados.has(value)) {
+            if (setAsientosAgregados.has(value)) {
+                input.disabled = false
+                input.checked = true
+                setAsientosModificados.add(value)
+                setAsientosAgregados.delete(value)
             } else {
-                if (setAsientosAgregados.has(value)) {
-                    input.disabled = false
-                    input.checked = false
-                    setAsientosModificados.add(value)
-                } else {
-                    input.disabled = false
-                    input.checked = true
-                    setAsientosModificados.add(value)
-                }
+                input.disabled = false
+                input.checked = false
+                setAsientosModificados.delete(value)
+            } 
+        } else {
+            if (setAsientosAgregados.has(value)) {
+                input.disabled = false
+                input.checked = false
+                setAsientosModificados.add(value)
+            } else {
+                input.disabled = false
+                input.checked = true
+                setAsientosModificados.add(value)
             }
+        }
         console.log("modificados",setAsientosModificados);
         console.log("agregados",setAsientosAgregados);
     }
@@ -208,6 +215,7 @@
                                 input.checked = false
                                 input.disabled = false
                                 input.setAttribute("class", "disponible")
+                                input.setAttribute("title", "disponible")
                                 input.onchange = () => cambiarEstado(input.id)
                                 td.appendChild(input)
                             } else if (asientos[asiento] === 1) {
