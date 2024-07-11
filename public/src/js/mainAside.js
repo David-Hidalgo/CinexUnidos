@@ -1,4 +1,5 @@
-document.querySelector('#header').outerHTML = `
+
+document.querySelector("#header").outerHTML = `
     <header class="toolbar reserve-aside-space">
         <a href="/"><div class="logo">
                 <img alt="CinexUnidos" src="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png" width="50px"
@@ -24,8 +25,8 @@ document.querySelector('#header').outerHTML = `
             <option value="Barquisimento">Barquisimento</option>
             <option value="Puerto Ordaz">Puerto Ordaz</option>
         </select>
-    </header>`
-document.querySelector('#aside').outerHTML =`
+    </header>`;
+document.querySelector("#aside").outerHTML = `
     <aside>
         <h2>Navegación</h2>
         <nav>
@@ -96,11 +97,11 @@ document.querySelector('#aside').outerHTML =`
             <small> ¿Necesitas ayuda? </small>
             <small> <a href="">Contáctanos</a> </small>
         </footer>
-    </aside>`
-import { io } from "socket.io-client";
-const socket = io("https://cinexunidos-production.up.railway.app/chat")
-socket.on("connect", () => {
-    console.log("me conecté");
-    console.log(socket);
-});
+    </aside>`;
 
+//const socket = io("https://cinexunidos-production.up.railway.app/chat");
+
+/* socket.on("connect", () => {
+  console.log("me conecté");
+  console.log(socket);
+}); */
