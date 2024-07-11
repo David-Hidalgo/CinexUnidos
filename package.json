@@ -1,27 +1,30 @@
 {
-	"author": "David Hidalgo, Daniel Castellanos, Rafael Marcano",
-	"bugs": {
-		"url": "https://github.com/David-Hidalgo/CinexUnidos/issues"
-	},
-	"description": "Proyeco de Programación Web",
-	"devDependencies": {
-		"vite": "^5.3.1"
-	},
-	"homepage": "https://github.com/David-Hidalgo/CinexUnidos#readme",
-	"keywords": [
-		"cine"
-	],
-	"name": "cinexunidos",
-	"private": true,
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/David-Hidalgo/CinexUnidos.git"
-	},
-	"scripts": {
-		"build": "vite build",
-		"dev": "vite",
-		"preview": "vite preview"
-	},
-	"type": "module",
-	"version": "0.0.0"
+  "name": "cinexunidos",
+  "version": "0.0.0",
+  "author": "David Hidalgo, Daniel Castellanos, Rafael Marcano",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/David-Hidalgo/CinexUnidos.git"
+  },
+  "devDependencies": {
+    "vite": "^5.3.1"
+  },
+  "bugs": {
+    "url": "https://github.com/David-Hidalgo/CinexUnidos/issues"
+  },
+  "description": "Proyeco de Programación Web",
+  "homepage": "https://github.com/David-Hidalgo/CinexUnidos#readme",
+  "keywords": [
+    "cine"
+  ],
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "dependencies": {
+    "socket.io-client": "^4.7.5"
+  }
 }

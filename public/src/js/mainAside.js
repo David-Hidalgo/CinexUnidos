@@ -97,4 +97,10 @@ document.querySelector('#aside').outerHTML =`
             <small> <a href="">Contáctanos</a> </small>
         </footer>
     </aside>`
+import { io } from "socket.io-client";
+const socket = io("https://cinexunidos-production.up.railway.app/chat")
+socket.on("connect", () => {
+    console.log("me conecté");
+    console.log(socket);
+});
 
