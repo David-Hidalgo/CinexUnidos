@@ -71,7 +71,7 @@ section {
 .card2:hover .back {
     transform: perspective(700px) rotateY(360deg);
 }
-
+/* MARK: chat de soporte */
 .chat {
     position: relative;
     display: flex;

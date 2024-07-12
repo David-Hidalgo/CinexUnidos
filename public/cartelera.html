@@ -40,56 +40,49 @@
 
 		</section>
 		<!-- MARK:chat -->
-		<div class="chat">
-			<button id="disconnect-btn">desconectar</button>
-			<!-- Información del contacto -->
-			<div class="contact bar">
-				<div class="pic" id="username-pic"><img src="https://api.dicebear.com/9.x/initials/svg?seed=david"
-						alt="david"></div>
-				<div class="name" id="username">david</div>
-				<div class="seen" id="last-seen"><small>Hoy a las 10:21 p.&nbsp;m.</small></div>
-			</div>
-
-			<div class="messages" id="chat">
-
+		<div id="bottom-right" class="bottom-right">
+			<!-- Chat -->
+			<div class="chat">
+				<button id="disconnect-btn">desconectar</button>
+			  <!-- Información del contacto -->
+			  <div class="contact bar">
+				<div class="pic" id="username-pic"><img src="https://api.dicebear.com/9.x/initials/svg?seed=Usuario" alt="Usuario"></div>
+				<div class="name" id="username">Usuario</div>
+				<div class="seen" id="last-seen"><small>Hoy a las 7:04 p.&nbsp;m.</small></div>
+			  </div>
+		
+			  <div class="messages" id="chat">
+		
 				<div style="display:none;">
-					<div class="time">
-						Hoy a las 11:41
-					</div>
-
-					<div class="message incoming">
-						Oh, ¿cuál es su problema? 🤔
-					</div>
-
-					<div class="message">
-						Me robaron mi butaca de la función cine 😡
-					</div>
+				  <div class="time">
+					Hoy a las 11:41
+				  </div>
+		
+				  <div class="message incoming">
+					Oh, ¿cuál es su problema? 🤔
+				  </div>
+		
+				  <div class="message">
+					Me robaron mi butaca de la función cine 😡
+				  </div>
 				</div>
-
+		
 				<!-- Burbujas mientras escribe -->
 				<div class="message" style="display: none;">
-					<div class="typing typing-1"></div>
-					<div class="typing typing-2"></div>
-					<div class="typing typing-3"></div>
+				  <div class="typing typing-1"></div>
+				  <div class="typing typing-2"></div>
+				  <div class="typing typing-3"></div>
 				</div>
-				<div class="message"><small>david</small>
-					<p>Buenas noches</p>
-				</div>
-				<div class="message"><small>david</small>
-					<p>intentando obtener este css</p>
-				</div>
-				<div class="message incoming"><small>Bimi</small>
-					<p>gogogo</p>
-				</div>
-			</div>
-
-			<!-- Inputs y Forms -->
-			<form class="input" id="respondedor">
+			  </div>
+		
+			  <!-- Inputs y Forms -->
+			  <form class="input" id="respondedor">
 				<input placeholder="Escribe tu mensaje aquí" type="text">
 				<i class="fas fa-paper-plane"></i>
-			</form>
-
-		</div>
+			  </form>
+		
+			</div>
+		  </div>
 		<!-- MARK: fin del chat -->
 	</main>
 	</section>
@@ -116,9 +109,9 @@
 	const small2 = document.createElement("small")
 
 	const soporte = document.createElement("a")
-	soporte.textContent = "Contáctanos"
-	soporte.href = ""
-	small1.textContent = "¿Necesitas ayuda?"
+	soporte.textContent = " Contáctanos"
+	soporte.href = "#bottom-right"
+	small1.textContent = "¿Necesitas ayuda? "
 	small2.appendChild(soporte)
 	footer.appendChild(small1)
 	footer.appendChild(small2)
@@ -141,13 +134,13 @@
 		}
 	});
 	console.log(soporte);
-	soporte.onclick = () => {
+	soporte.onclick = (evt) => {
 		evt.preventDefault();
 		$chatElement.style.display = "block"
 		$chatForm.style.display = "block"
 		$disconnectBtn.style.display = "block"
 		$chatElement.scrollTop = $chatElement.scrollHeight;
-
+		socket.connect();
 		socket.open();
 	}
 	socket.on('connect', () => {
