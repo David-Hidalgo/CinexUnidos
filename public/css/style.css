@@ -35,7 +35,7 @@ h1 {
 
 hr {
   height: 1px;
-  background-color: rgb(48, 48, 48);
+  background-color:  #1b1a1a;
   border: none;
 }
 
@@ -69,7 +69,7 @@ hr {
 }
 
 .reserve-aside-space {
-  margin-left: 280px;
+  margin-left: 272px;
   padding: 1rem 0;
 }
 
@@ -77,6 +77,11 @@ hr {
   display: flex;
   align-items: baseline;
   justify-content: space-evenly;
+  background-color:  #1b1a1a;
+  /* border-left: 1px solid rgba(132, 132, 132, 0.418); */
+  border-bottom: 1px solid rgba(132, 132, 132, 0.418);
+  
+ 
 }
 
 .toolbar h1 {
@@ -272,6 +277,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
   aside{
-    background-color: #bebdbd;
+    color: rgba(255, 255, 255, 0.87);
+    background-color:  #1b1a1a;
   }
 }
