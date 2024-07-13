@@ -113,10 +113,6 @@
         </nav>
         <br>
         <!-- <hr /> -->
-        <footer>
-            <small> ¿Necesitas ayuda? </small>
-            <small> <a href="">Contáctanos</a> </small>
-        </footer>
     </aside>
     <!-- <hr /> -->
     <main class="reserve-aside-space">
@@ -135,7 +131,51 @@
             </nav>
         </section>
     </main>
-
+    <!-- MARK:chat -->
+		<div id="bottom-right" class="bottom-right" hidden>
+			<!-- Chat -->
+			<div class="chat">
+				<button id="disconnect-btn">desconectar</button>
+			  <!-- Información del contacto -->
+			  <div class="contact bar">
+				<div class="pic" id="username-pic"><img src="https://api.dicebear.com/9.x/initials/svg?seed=Usuario" alt="Usuario"></div>
+				<div class="name" id="username">Usuario</div>
+				<div class="seen" id="last-seen"><small>Hoy a las 7:04 p.&nbsp;m.</small></div>
+			  </div>
+		
+			  <div class="messages" id="chat">
+		
+				<div style="display:none;">
+				  <div class="time">
+					Hoy a las 11:41
+				  </div>
+		
+				  <div class="message incoming">
+					Oh, ¿cuál es su problema? 🤔
+				  </div>
+		
+				  <div class="message">
+					Me robaron mi butaca de la función cine 😡
+				  </div>
+				</div>
+		
+				<!-- Burbujas mientras escribe -->
+				<div class="message" style="display: none;">
+				  <div class="typing typing-1"></div>
+				  <div class="typing typing-2"></div>
+				  <div class="typing typing-3"></div>
+				</div>
+			  </div>
+		
+			  <!-- Inputs y Forms -->
+			  <form class="input" id="respondedor">
+				<input placeholder="Escribe tu mensaje aquí" type="text">
+				<i class="fas fa-paper-plane"></i>
+			  </form>
+		
+			</div>
+		  </div>
+		<!-- MARK: fin del chat -->
 </body>
 <script>
     const backendUrl = "https://cinexunidos-production.up.railway.app/"
@@ -169,6 +209,115 @@
 
     }
     cargarCines()
+</script>
+<script type="module">
+    import { io } from "https://cdn.socket.io/4.7.5/socket.io.esm.min.js";
+
+	const aside = document.querySelector("aside")
+	const footer = document.createElement("footer")
+	const small1 = document.createElement("small")
+	const small2 = document.createElement("small")
+
+	const soporte = document.createElement("a")
+	soporte.textContent = " Contáctanos"
+	soporte.href = "#bottom-right"
+	small1.textContent = "¿Necesitas ayuda? "
+	small2.appendChild(soporte)
+	footer.appendChild(small1)
+	footer.appendChild(small2)
+	aside.appendChild(footer)
+
+	const username = "usuario"
+	const $chatForm = document.getElementById('respondedor');
+	const $messageInput = $chatForm.querySelector('input');
+	const $chatElement = document.querySelector('#chat');
+	const $username = document.querySelector('#username');
+	const $lastSeen = document.querySelector('#last-seen');
+	const $usernamePic = document.querySelector('#username-pic');
+	const $disconnectBtn = document.querySelector('#disconnect-btn');
+
+	console.log($chatForm, $messageInput, $chatElement, $username, $lastSeen, $usernamePic, $disconnectBtn);
+	const socket = io("wss://cinexunidos-production.up.railway.app", {
+		auth: {
+			name: "Usuario",
+			token: "1233"
+		}
+	});
+	console.log(soporte);
+	soporte.onclick = (evt) => {
+		socket.close();
+		let test = prompt("Cuál es tu nombre?");
+		$chatElement.style.display = "block"
+		$chatForm.style.display = "block"
+		$disconnectBtn.style.display = "block"
+		$chatElement.scrollTop = $chatElement.scrollHeight;
+		const divAbajo = document.querySelector("#bottom-right")
+		divAbajo.style.display = "block"
+		socket.open();
+	}
+	socket.on('connect', () => {
+		// $username.textContent = username;
+		$lastSeen.innerHTML = getLastSeen();
+
+		// $usernamePic.innerHTML = `<img src="https://api.dicebear.com/9.x/initials/svg?seed=${username}" alt="${username}" />`;
+		console.log('Connected');
+	});
+	const renderMessage = (payload) => {
+		const { id, message, name } = payload;
+		console.log(payload);
+		const $divElement = document.createElement('div');
+		$divElement.classList.add('message');
+
+		if (id !== socket.id) {
+			$divElement.classList.add('incoming');
+		}
+
+		$divElement.innerHTML = `<small>${name}</small><p>${message}</p>`;
+		$chatElement.appendChild($divElement);
+
+		// Scroll al final de los mensajes...
+		$chatElement.scrollTop = $chatElement.scrollHeight;
+	};
+	socket.on('disconnect', () => {
+		console.log('Disconnected');
+	});
+
+	$chatForm.addEventListener('submit', (evt) => {
+		evt.preventDefault();
+
+		const message = $messageInput.value;
+		$messageInput.value = '';
+
+		socket.emit('send-message', message);
+	});
+
+	$disconnectBtn.addEventListener('click', (evt) => {
+		console.log("hi");
+		evt.preventDefault();
+		const divAbajo = document.querySelector("#bottom-right")
+		divAbajo.style.display = "none"
+		socket.close();
+		$chatElement.innerHTML="";
+		// $chatElement.innerHTML = '';
+	});
+
+	// socket.on('online-users', renderUsers);
+
+	socket.on('new-message', renderMessage);
+
+	function getLastSeen() {
+		// Obtener la fecha actual
+		const now = new Date();
+
+		// Convertir a huso horario de Venezuela (GMT-4)
+		const venezuelaTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Caracas' }));
+
+		// Formatear la fecha
+		const options = { hour: 'numeric', minute: 'numeric', hour12: true };
+		const formattedTime = venezuelaTime.toLocaleTimeString('es-VE', options);
+
+		return `<small>Hoy a las ${formattedTime}</small>`;
+	} 
 </script>
 
 </html>

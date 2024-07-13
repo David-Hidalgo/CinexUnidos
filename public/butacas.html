@@ -104,6 +104,7 @@
             }
         })
         setAsientosModificados.clear()
+        window.localStorage.setItem("ultima pelicula", idPelícula)
     }
 
      function deReservar(value) {
@@ -184,14 +185,16 @@
         console.log("modificados",setAsientosModificados);
         console.log("agregados",setAsientosAgregados);
     }
+    let idPelícula
 	function cargarasientosPorSala() {
 		const imagen = document.getElementById("imagenCine")
 		const titulo = document.getElementById("deCine")
 		fetch(`${backendUrl}theatres/${teatroId}/auditoriums/${auditorioId}/showtimes/${showtimeId}`)
 			.then(response => response.json())
 			.then(data => {
-				imagen.src = backendUrl + data.movie.poster
-				titulo.textContent = "Selecciona tus asientos para" + " " + data.movie.name
+				imagen.src = backendUrl + data.movie.poster;
+                idPelícula = JSON.stringify(data.movie);
+				titulo.textContent = "Selecciona tus asientos para" + " " + data.movie.name;
 				const peliculas = document.getElementById("asientos")
                 //crear una tabla con los asientos de la sala 
                 tabla = document.createElement("table")

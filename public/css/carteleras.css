@@ -71,6 +71,11 @@ section {
 .card2:hover .back {
     transform: perspective(700px) rotateY(360deg);
 }
+
+#ultimaPeli{
+    display: flex;
+    flex-flow: column;
+}
 /* MARK: chat de soporte */
 .chat {
     position: relative;

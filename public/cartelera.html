@@ -36,11 +36,10 @@
 		</hgroup>
 		<section id="películas">
 		</section>
-		<section id="peli">
-
+		<section id="ultimaPeli">
 		</section>
 		<!-- MARK:chat -->
-		<div id="bottom-right" class="bottom-right">
+		<div id="bottom-right" class="bottom-right" hidden>
 			<!-- Chat -->
 			<div class="chat">
 				<button id="disconnect-btn">desconectar</button>
@@ -129,18 +128,19 @@
 	console.log($chatForm, $messageInput, $chatElement, $username, $lastSeen, $usernamePic, $disconnectBtn);
 	const socket = io("wss://cinexunidos-production.up.railway.app", {
 		auth: {
-			name: "david",
-			token: "123"
+			name: "Usuario",
+			token: "1233"
 		}
 	});
-	console.log(soporte);
 	soporte.onclick = (evt) => {
-		evt.preventDefault();
+		socket.close();
+		let test = prompt("Cuál es tu nombre?");
 		$chatElement.style.display = "block"
 		$chatForm.style.display = "block"
 		$disconnectBtn.style.display = "block"
 		$chatElement.scrollTop = $chatElement.scrollHeight;
-		socket.connect();
+		const divAbajo = document.querySelector("#bottom-right")
+		divAbajo.style.display = "block"
 		socket.open();
 	}
 	socket.on('connect', () => {
@@ -152,7 +152,7 @@
 	});
 	const renderMessage = (payload) => {
 		const { id, message, name } = payload;
-
+		console.log(payload);
 		const $divElement = document.createElement('div');
 		$divElement.classList.add('message');
 
@@ -180,9 +180,12 @@
 	});
 
 	$disconnectBtn.addEventListener('click', (evt) => {
-		console.log("hi");
 		evt.preventDefault();
+		const divAbajo = document.querySelector("#bottom-right")
+		divAbajo.style.display = "none"
 		socket.close();
+		$chatElement.innerHTML="";
+		// $chatElement.innerHTML = '';
 	});
 
 	// socket.on('online-users', renderUsers);
@@ -208,7 +211,6 @@
 
 	let query = window.location.href;
 	function cargarPelicula(id, runtimeD, ratingD, teatros) {
-		console.log(runtimeD);
 		const popUp = document.getElementById("PopUp")
 		const runtime = popUp.querySelector("#runtime-movie")
 		const rating = popUp.querySelector("#rating")
@@ -217,13 +219,11 @@
 		numero = parseInt(numeroS)
 		horas = Math.floor(numero / 60)
 		minutos = numero % 60
-		console.log(teatros);
 		runtime.setAttribute('datetime', `PT${horas}H${minutos}M0S`)
 		rating.textContent = ratingD
 		//agarrar el único hijo nav de popUp y agarrar su único hijo ul
 		const nav = popUp.querySelector("nav")
 		const ul = nav.querySelector("ul")
-		console.log(id, runtimeD, ratingD, teatros);
 		ul.innerHTML = ""
 		//crear un li por cada teatro con un a que lleve a la página de ese teatro con la película
 		teatros.forEach(teatro => {
@@ -264,12 +264,46 @@
 		})
 	}
 
+	function cargarUltimaPeliVista(peliculasUnicas, teatros) {
+
+		if (window.localStorage.getItem("ultima pelicula") != null) {
+			const ultimaPeli = JSON.parse(window.localStorage.getItem("ultima pelicula"))
+			console.log("up\n: ",ultimaPeli);
+			console.log("pu: ",peliculasUnicas);
+			if (peliculasUnicas.has(ultimaPeli.id)) {
+				const ultimaPeliDiv = document.getElementById("ultimaPeli")
+				const h2 = document.createElement("h2")
+				h2.textContent="Última película vista"
+				ultimaPeliDiv.appendChild(h2)
+				const card = document.createElement("div")
+				const figure = document.createElement("div")
+				const back = crearDivDaniel()
+				const img = document.createElement("img")
+				const cartas = document.createElement("section")
+				img.src = backendUrl + ultimaPeli.poster
+				img.alt = `poster de ${ultimaPeli.name}`
+				card.setAttribute("class", "card2")
+				figure.setAttribute("class", "face front")
+				back.setAttribute("class", "face back")
+				figure.appendChild(img)
+				const h3t = back.querySelector("h3")
+				h3t.textContent = ultimaPeli.name
+				cargarPeliDaniel(ultimaPeli.id, ultimaPeli.runningTime, ultimaPeli.rating, teatros, back)
+	
+				figure.id = ultimaPeli.id
+				card.appendChild(figure)
+				card.appendChild(back)
+				cartas.appendChild(card)
+				ultimaPeliDiv.appendChild(cartas)
+			}
+			
+		}
+	}
 	function cargarTodasLasPelículas() {
 		fetch(`${backendUrl}theatres`)
-			.then(response => response.json())
-			.then(data => {
+		.then(response => response.json())
+		.then(data => {
 				let peliculasUnicas = new Map();
-				console.log(data);
 				const peliculas = document.getElementById("películas")
 				data.forEach(teatro => {
 					teatro.auditoriums.forEach(sala => {
@@ -283,12 +317,10 @@
 					})
 				})
 				for (const movie of peliculasUnicas) {
-					console.log(movie[1]);
 					const figure = document.createElement("div")
 					const card = document.createElement("div")
 					const back = crearDivDaniel()
 					const img = document.createElement("img")
-					console.log(movie[1].poster);
 					img.src = backendUrl + movie[1].poster
 					img.alt = `poster de ${movie[1].name}`
 					card.setAttribute("class", "card2")
@@ -304,6 +336,13 @@
 					card.appendChild(back)
 
 					peliculas.appendChild(card)
+
+				}
+				if (peliculasUnicas.size == 0) {
+					window.localStorage.setItem("ultima pelicula", JSON.stringify(undefined))
+				}else if (peliculasUnicas.has(JSON.parse(window.localStorage.getItem("ultima pelicula")).id)) {
+					const teatros = peliculasUnicas.get(JSON.parse(window.localStorage.getItem("ultima pelicula")).id).teatros
+					cargarUltimaPeliVista(peliculasUnicas, teatros)
 
 				}
 			})
@@ -338,7 +377,7 @@
 	}
 
 	function cargarPelículasPorTeatro() {
-		console.log(`${backendUrl}theatres/${query.split("=")[1]}/auditoriums`);
+		// console.log(`${backendUrl}theatres/${query.split("=")[1]}/auditoriums`);
 		const imagen = document.getElementById("imagenCine")
 		const titulo = document.getElementById("deCine")
 		fetch(`${backendUrl}theatres/${query.split("=")[1]}`)
@@ -376,6 +415,7 @@
 							peliculas.appendChild(card)
 						}
 					})
+					cargarUltimaPeliVista(peliculasUnicas, [query.split("=")[1]])
 			})
 	}
 

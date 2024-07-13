@@ -87,10 +87,10 @@ export function insertarAside() {
                         </summary>
                         <ol>
                             <li>
-                                <a href="./cines_fav.html">Cines favoritos</a>
+                                <a href="./SalasFunciones.html#salasFavoritas">Salas Cines favoritos</a>
                             </li>
                             <li>
-                                <a href="./pelis_vistas.html">Películas vistas</a>
+                                <a href="./cartelera.html#ultimaPeli">Películas vistas</a>
                             </li>
                             <li>
                                 <div id="google_translate_element"></div>
