@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="./css/style.css" />
-	<link rel="stylesheet" href="./css/SesionesSalas.css" />
+	<link rel="stylesheet" href="./css/SalasFunciones.css" />
 	<link rel="icon" href="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png" />
 	<title>Butacas</title>
 </head>
@@ -13,7 +13,11 @@
 	<header id="header"></header>
 	<br>
 	<aside id="aside"></aside>
-	<script type="module" src="./src/js/mainAside.js"></script>
+	<script type="module">
+		import {insertarHeader, insertarAside} from './src/js/mainAside.js';
+		insertarHeader();
+		insertarAside();
+	</script>
 	<hr />
 	<main class="reserve-aside-space">
 		<hgroup>
@@ -81,7 +85,6 @@
 		a.textContent = `Ver en ${teatros[0]} en la sala ${teatros[1]}`
 		li.appendChild(a)
 		ul.appendChild(li)
-		
 	}
 
 	const query = url.split("?")[1]

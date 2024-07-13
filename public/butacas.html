@@ -17,7 +17,11 @@
 <body>
 	<header id="header"></header>
 	<aside id="aside"></aside>
-	<script type="module" src="./src/js/mainAside.js"></script>
+    <script type="module">
+		import {insertarHeader, insertarAside} from './src/js/mainAside.js';
+		insertarHeader();
+		insertarAside();
+	</script>
 	<main class="reserve-aside-space">
 		<hgroup>
 			<h1 id="deCine">Catálogo de películas</h1>
@@ -65,7 +69,7 @@
 		teatros.forEach(teatro => {
 			const li = document.createElement("li")
 			const a = document.createElement("a")
-			a.href = `./SesionesSalas.html?theatre=${teatro}&movie=${id}`
+			a.href = `./SalasFunciones.html?theatre=${teatro}&movie=${id}`
 			a.textContent = `Ver en ${teatro}`
 			li.appendChild(a)
 			ul.appendChild(li)
