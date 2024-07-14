@@ -30,7 +30,7 @@
             <div id="div-sala">
                 <h2 id="sala">En cartelera</h2>
                 <div id="espacio"></div>
-                <input id="favorita" type="checkbox" onchange=""></input>
+                <label id="fave"><input id="favorita" type="checkbox" onchange="cambiarSalaFavorita()"/></label>
             </div>
 		</hgroup>
 		<center><section id="asientos">
@@ -46,20 +46,23 @@
 
 
     function cambiarSalaFavorita() {
-        /* if (favorita.checked) {
+        if (favorita.checked) {
+            console.log("agregando",localStorage);
             const salasFavoritas = JSON.parse(localStorage.getItem("salasFavoritas"))
             salasFavoritas.push([teatroId, auditorioId])
             localStorage.setItem("salasFavoritas", JSON.stringify(salasFavoritas))
+            console.log("agregada",localStorage);
         } else {
-            const salasFavoritas= localStorage.getItem("salasFavoritas")
+            console.log("quitando",localStorage);
+            const salasFavoritas= JSON.parse(localStorage.getItem("salasFavoritas"))
             salasFavoritas.forEach(sala => {
                 if (sala[0] === teatroId && sala[1] === auditorioId) {
-                    salasFavoritas.splice(salasFavoritas.indexOf(sala), 1)
+                    salasFavoritas.pop(sala)
                 }
             })
             localStorage.setItem("salasFavoritas", JSON.stringify(salasFavoritas))
-            
-        } */
+            console.log("quitada",localStorage);
+        }
         
     }
 
@@ -266,21 +269,21 @@
                 peliculas.appendChild(tabla)
             })
 	}
-
-    // const favorita = document.getElementById("favorita")
-    // if (localStorage.getItem("salasFavoritas") === null) {
-    //     localStorage.setItem("salasFavoritas", [[teatroId, auditorioId]])
-    //     console.log(localStorage);
-    // }else {
-    //     console.log(localStorage);
-    //     const salasFavoritas = localStorage.getItem("salasFavoritas")
-    //     log(salasFavoritas);
-    //     salasFavoritas.forEach(sala => {
-    //         if (sala[0] === teatroId && sala[1] === auditorioId) {
-    //             favorita.checked = true
-    //         }
-    //     })
-    // }
+    const favorita = document.getElementById("favorita")
+    let salasFavoritas;
+    if (localStorage.getItem("salasFavoritas") === null) {
+        localStorage.setItem("salasFavoritas", JSON.stringify([[teatroId, auditorioId]]))
+        console.log("agregada",localStorage);
+    }else {
+        salasFavoritas=JSON.parse(localStorage.getItem("salasFavoritas"))
+        console.log(salasFavoritas);
+        salasFavoritas.forEach(sala => {
+            if (sala[0] === teatroId && sala[1] === auditorioId) {
+                favorita.checked = true
+            }
+        }) 
+       console.log("cargada",localStorage);
+    }
 
 	cargarasientosPorSala()
 

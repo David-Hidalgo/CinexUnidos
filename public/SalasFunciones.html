@@ -86,9 +86,9 @@
 
 		rating.textContent = ratingD
 		//agarrar el único hijo nav de popUp y agarrar su único hijo ul
-	
+
 		console.log(id, runtimeD, ratingD, showTimeInfo);
-		const a= document.createElement("a")
+		const a = document.createElement("a")
 		a.href = `./butacas.html?theatre=${showTimeInfo[0]}&sala=${showTimeInfo[1]}&pelicula=${id}`
 		a.textContent = "Reservar"
 		popUp.appendChild(a)
@@ -197,57 +197,60 @@
 				// imagen.src = backendUrl + data.images[1]
 				let mapSalas = new Map()
 				titulo.textContent = titulo.textContent + " " + teatroId
-				console.log("dat", data);
 				let salasDoc = document.getElementById("SalasDeCine")
 				const ul = document.createElement("ul")
-				let a = localStorage.key(2)
-				console.log("cosa",a);
-				data.forEach(Teatro => {
-					console.log("ele", Teatro);
-					Teatro.auditoriums.forEach(sala => {
-						sala.showtimes.forEach(showtime => {
-							
-							if (mapSalas.has(sala.id)) {
-								mapSalas.get(sala.id).push(showtime)
-							} else {
-								mapSalas.set(sala.id, [showtime])
-								console.log(mapSalas);
-							}
+				if (localStorage.getItem("salasFavoritas")) {
+					const salasFavoritas = JSON.parse(localStorage.getItem("salasFavoritas"))
+					console.log(salasFavoritas);
+					data.forEach(Teatro => {
+						Teatro.auditoriums.forEach(sala => {
+							sala.showtimes.forEach(showtime => {
+								salasFavoritas.forEach(salaFav => {
+									if (salaFav[0] === Teatro.id && salaFav[1] === sala.id) {
+										if (mapSalas.has(sala.id + Teatro.id)) {
+											mapSalas.get(sala.id + Teatro.id).push(showtime)
+										} else {
+											mapSalas.set(sala.id + Teatro.id, [showtime])
+											console.log(mapSalas);
+										}
+									}
+								})
+							});
 						});
-					});
-				})
+					})
 
 
-				for (const sala of mapSalas) {
-					const li = document.createElement("li")
-					const h2 = document.createElement("h2")
-					h2.textContent = sala[0]
-
-					li.appendChild(h2)
-					li.setAttribute("class", "movie-theater-list")
-					const listaFunciones = document.createElement("ul")
-					listaFunciones.id = "cinesDisponibles"
-					listaFunciones.setAttribute("class", "card-grid")
-					li.appendChild(listaFunciones)
-					console.log(sala[0]);
-
-					for (const showtime of sala[1]) {
-
+					for (const sala of mapSalas) {
 						const li = document.createElement("li")
-						li.setAttribute("class", "card")
-						const figure = document.createElement("div")
-						const figcaption = document.createElement("h4")
-						figcaption.textContent = showtime.movie.name
-						figure.setAttribute("class", "movie-poster")
-						figure.id = showtime.id
-						console.log("fi", figure.id);
-						cargarPelicula(showtime.id, showtime.movie.runningTime, showtime.movie.rating, [teatroId, sala[0], showtime.movie.name, showtime.startTime], figure)
-						li.appendChild(figure)
-						listaFunciones.appendChild(li)
+						const h2 = document.createElement("h2")
+						h2.textContent = sala[0]
+
+						li.appendChild(h2)
+						li.setAttribute("class", "movie-theater-list")
+						const listaFunciones = document.createElement("ul")
+						listaFunciones.id = "cinesDisponibles"
+						listaFunciones.setAttribute("class", "card-grid")
+						li.appendChild(listaFunciones)
+						console.log(sala[0]);
+
+						for (const showtime of sala[1]) {
+
+							const li = document.createElement("li")
+							li.setAttribute("class", "card")
+							const figure = document.createElement("div")
+							const figcaption = document.createElement("h4")
+							figcaption.textContent = showtime.movie.name
+							figure.setAttribute("class", "movie-poster")
+							figure.id = showtime.id
+							console.log("fi", figure.id);
+							cargarPelicula(showtime.id, showtime.movie.runningTime, showtime.movie.rating, [teatroId, sala[0], showtime.movie.name, showtime.startTime], figure)
+							li.appendChild(figure)
+							listaFunciones.appendChild(li)
+						}
+						ul.appendChild(li)
 					}
-					ul.appendChild(li)
+					salasDoc.appendChild(ul)
 				}
-				salasDoc.appendChild(ul)
 			})
 	}
 
