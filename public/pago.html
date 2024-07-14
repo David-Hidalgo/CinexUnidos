@@ -11,8 +11,13 @@
 <body>
     <section>
         	<header id="header"></header>
-	<aside id="aside"></aside>
-	<script type="module" src="./src/js/mainAside.js"></script>
+	    <aside id="aside"></aside>
+	    <script type="module" >
+            import { insertarHeader,insertarAside } from "./src/js/mainAside.js";
+            insertarHeader();
+            insertarAside();
+
+        </script>
         
         <main class="reserve-aside-space">
 
