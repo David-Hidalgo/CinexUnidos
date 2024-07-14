@@ -43,45 +43,46 @@
 			<!-- Chat -->
 			<div class="chat">
 				<button id="disconnect-btn">desconectar</button>
-			  <!-- Información del contacto -->
-			  <div class="contact bar">
-				<div class="pic" id="username-pic"><img src="https://api.dicebear.com/9.x/initials/svg?seed=Usuario" alt="Usuario"></div>
-				<div class="name" id="username">Usuario</div>
-				<div class="seen" id="last-seen"><small>Hoy a las 7:04 p.&nbsp;m.</small></div>
-			  </div>
-		
-			  <div class="messages" id="chat">
-		
-				<div style="display:none;">
-				  <div class="time">
-					Hoy a las 11:41
-				  </div>
-		
-				  <div class="message incoming">
-					Oh, ¿cuál es su problema? 🤔
-				  </div>
-		
-				  <div class="message">
-					Me robaron mi butaca de la función cine 😡
-				  </div>
+				<!-- Información del contacto -->
+				<div class="contact bar">
+					<div class="pic" id="username-pic"><img src="https://api.dicebear.com/9.x/initials/svg?seed=Usuario"
+							alt="Usuario"></div>
+					<div class="name" id="username">Usuario</div>
+					<div class="seen" id="last-seen"><small>Hoy a las 7:04 p.&nbsp;m.</small></div>
 				</div>
-		
-				<!-- Burbujas mientras escribe -->
-				<div class="message" style="display: none;">
-				  <div class="typing typing-1"></div>
-				  <div class="typing typing-2"></div>
-				  <div class="typing typing-3"></div>
+
+				<div class="messages" id="chat">
+
+					<div style="display:none;">
+						<div class="time">
+							Hoy a las 11:41
+						</div>
+
+						<div class="message incoming">
+							Oh, ¿cuál es su problema? 🤔
+						</div>
+
+						<div class="message">
+							Me robaron mi butaca de la función cine 😡
+						</div>
+					</div>
+
+					<!-- Burbujas mientras escribe -->
+					<div class="message" style="display: none;">
+						<div class="typing typing-1"></div>
+						<div class="typing typing-2"></div>
+						<div class="typing typing-3"></div>
+					</div>
 				</div>
-			  </div>
-		
-			  <!-- Inputs y Forms -->
-			  <form class="input" id="respondedor">
-				<input placeholder="Escribe tu mensaje aquí" type="text">
-				<i class="fas fa-paper-plane"></i>
-			  </form>
-		
+
+				<!-- Inputs y Forms -->
+				<form class="input" id="respondedor">
+					<input placeholder="Escribe tu mensaje aquí" type="text">
+					<i class="fas fa-paper-plane"></i>
+				</form>
+
 			</div>
-		  </div>
+		</div>
 		<!-- MARK: fin del chat -->
 	</main>
 	</section>
@@ -153,18 +154,21 @@
 	const renderMessage = (payload) => {
 		const { id, message, name } = payload;
 		console.log(payload);
-		const $divElement = document.createElement('div');
-		$divElement.classList.add('message');
+		if (name === "Soporte" || name === "Usuario") {
 
-		if (id !== socket.id) {
-			$divElement.classList.add('incoming');
+			const $divElement = document.createElement('div');
+			$divElement.classList.add('message');
+
+			if (id !== socket.id) {
+				$divElement.classList.add('incoming');
+			}
+
+			$divElement.innerHTML = `<small>${name}</small><p>${message}</p>`;
+			$chatElement.appendChild($divElement);
+
+			// Scroll al final de los mensajes...
+			$chatElement.scrollTop = $chatElement.scrollHeight;
 		}
-
-		$divElement.innerHTML = `<small>${name}</small><p>${message}</p>`;
-		$chatElement.appendChild($divElement);
-
-		// Scroll al final de los mensajes...
-		$chatElement.scrollTop = $chatElement.scrollHeight;
 	};
 	socket.on('disconnect', () => {
 		console.log('Disconnected');
@@ -184,7 +188,7 @@
 		const divAbajo = document.querySelector("#bottom-right")
 		divAbajo.style.display = "none"
 		socket.close();
-		$chatElement.innerHTML="";
+		$chatElement.innerHTML = "";
 		// $chatElement.innerHTML = '';
 	});
 
@@ -268,12 +272,12 @@
 
 		if (window.localStorage.getItem("ultima pelicula") != null) {
 			const ultimaPeli = JSON.parse(window.localStorage.getItem("ultima pelicula"))
-			console.log("up\n: ",ultimaPeli);
-			console.log("pu: ",peliculasUnicas);
+			console.log("up\n: ", ultimaPeli);
+			console.log("pu: ", peliculasUnicas);
 			if (peliculasUnicas.has(ultimaPeli.id)) {
 				const ultimaPeliDiv = document.getElementById("ultimaPeli")
 				const h2 = document.createElement("h2")
-				h2.textContent="Última película vista"
+				h2.textContent = "Última película vista"
 				ultimaPeliDiv.appendChild(h2)
 				const card = document.createElement("div")
 				const figure = document.createElement("div")
@@ -289,20 +293,20 @@
 				const h3t = back.querySelector("h3")
 				h3t.textContent = ultimaPeli.name
 				cargarPeliDaniel(ultimaPeli.id, ultimaPeli.runningTime, ultimaPeli.rating, teatros, back)
-	
+
 				figure.id = ultimaPeli.id
 				card.appendChild(figure)
 				card.appendChild(back)
 				cartas.appendChild(card)
 				ultimaPeliDiv.appendChild(cartas)
 			}
-			
+
 		}
 	}
 	function cargarTodasLasPelículas() {
 		fetch(`${backendUrl}theatres`)
-		.then(response => response.json())
-		.then(data => {
+			.then(response => response.json())
+			.then(data => {
 				let peliculasUnicas = new Map();
 				const peliculas = document.getElementById("películas")
 				data.forEach(teatro => {
@@ -340,7 +344,7 @@
 				}
 				if (peliculasUnicas.size == 0) {
 					window.localStorage.setItem("ultima pelicula", JSON.stringify(undefined))
-				}else if (peliculasUnicas.has(JSON.parse(window.localStorage.getItem("ultima pelicula")).id)) {
+				} else if (peliculasUnicas.has(JSON.parse(window.localStorage.getItem("ultima pelicula")).id)) {
 					const teatros = peliculasUnicas.get(JSON.parse(window.localStorage.getItem("ultima pelicula")).id).teatros
 					cargarUltimaPeliVista(peliculasUnicas, teatros)
 
@@ -415,7 +419,7 @@
 							peliculas.appendChild(card)
 						}
 					})
-					cargarUltimaPeliVista(peliculasUnicas, [query.split("=")[1]])
+				cargarUltimaPeliVista(peliculasUnicas, [query.split("=")[1]])
 			})
 	}
 
