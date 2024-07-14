@@ -207,10 +207,10 @@
 							sala.showtimes.forEach(showtime => {
 								salasFavoritas.forEach(salaFav => {
 									if (salaFav[0] === Teatro.id && salaFav[1] === sala.id) {
-										if (mapSalas.has(sala.id + Teatro.id)) {
-											mapSalas.get(sala.id + Teatro.id).push(showtime)
+										if (mapSalas.has(sala.name +", "+ Teatro.name)) {
+											mapSalas.get(sala.name +", "+ Teatro.name).push(showtime)
 										} else {
-											mapSalas.set(sala.id + Teatro.id, [showtime])
+											mapSalas.set(sala.name +", "+ Teatro.name, [showtime])
 											console.log(mapSalas);
 										}
 									}
