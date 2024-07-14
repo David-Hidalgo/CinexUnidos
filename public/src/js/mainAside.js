@@ -18,17 +18,6 @@ export function insertarHeader() {
         </form>
         <br />
         <h1><a href="">Notificaciones</a></h1>
-        <label for="Ubicacion"></label>
-        <select title="Ubicacion" name="Ubicacion">
-            <option value="Caracas">Caracas</option>
-            <option value="Maracay">Maracay</option>
-            <option value="Valencia">Valencia</option>
-            <option value="Margarita">Margarita</option>
-            <option value="Maracaibo">Maracaibo</option>
-            <option value="Maturin">Maturin</option>
-            <option value="Barquisimento">Barquisimento</option>
-            <option value="Puerto Ordaz">Puerto Ordaz</option>
-        </select>
     </header>`;
 }
 

@@ -25,3 +25,10 @@ npm run dev
 3.   dar click en ver detalles de una de las funciones que aparecen 
 4.  dar click en el link de ver en *
 5. bienvenido a las butacas
+## para obtener soporte
+en la pagina principal darle click a la barra lateral contactenos
+
+si introduce Soporte en la pregunta de nombre te pone del lado de la persona que da soporte
+si se pone cualquier otro nombre sale la pestaña de soporte 
+
+## ya tenemos las preferencias del usuario

@@ -117,7 +117,7 @@
 	footer.appendChild(small2)
 	aside.appendChild(footer)
 
-	const username = "usuario"
+	let username = "usuario"
 	const $chatForm = document.getElementById('respondedor');
 	const $messageInput = $chatForm.querySelector('input');
 	const $chatElement = document.querySelector('#chat');
@@ -125,36 +125,36 @@
 	const $lastSeen = document.querySelector('#last-seen');
 	const $usernamePic = document.querySelector('#username-pic');
 	const $disconnectBtn = document.querySelector('#disconnect-btn');
-
 	console.log($chatForm, $messageInput, $chatElement, $username, $lastSeen, $usernamePic, $disconnectBtn);
 	const socket = io("wss://cinexunidos-production.up.railway.app", {
 		auth: {
-			name: "Usuario",
+			name: username,
 			token: "1233"
 		}
 	});
 	soporte.onclick = (evt) => {
 		socket.close();
-		let test = prompt("Cuál es tu nombre?");
+		username = prompt("¿Cuál es tu nombre?");
 		$chatElement.style.display = "block"
 		$chatForm.style.display = "block"
 		$disconnectBtn.style.display = "block"
 		$chatElement.scrollTop = $chatElement.scrollHeight;
 		const divAbajo = document.querySelector("#bottom-right")
 		divAbajo.style.display = "block"
+		socket.auth = { name: username, token: "1233" };
 		socket.open();
 	}
 	socket.on('connect', () => {
-		// $username.textContent = username;
+		$username.textContent = username;
 		$lastSeen.innerHTML = getLastSeen();
 
-		// $usernamePic.innerHTML = `<img src="https://api.dicebear.com/9.x/initials/svg?seed=${username}" alt="${username}" />`;
+		$usernamePic.innerHTML = `<img src="https://api.dicebear.com/9.x/initials/svg?seed=${username}" alt="${username}" />`;
 		console.log('Connected');
 	});
 	const renderMessage = (payload) => {
 		const { id, message, name } = payload;
 		console.log(payload);
-		if (name === "Soporte" || name === "Usuario") {
+		if (name === "Soporte" || name === username) {
 
 			const $divElement = document.createElement('div');
 			$divElement.classList.add('message');
