@@ -37,3 +37,16 @@
     background-color: rgb(221, 194, 44);
     cursor: not-allowed;
   }
+
+  #div-sala {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  #espacio {
+    flex-grow: 1;
+  }
+  #sala{
+    padding-left: 20px;
+  }

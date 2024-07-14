@@ -27,24 +27,42 @@
 			<h1 id="deCine">Catálogo de películas</h1>
 			<center><img id="imagenCine" src="https://cinexunidos-production.up.railway.app/assets/images/cinex-unidos.png"
 				alt="imagen"></center>
-			<h2>En cartelera</h2>
+            <div id="div-sala">
+                <h2 id="sala">En cartelera</h2>
+                <div id="espacio"></div>
+                <input id="favorita" type="checkbox" onchange=""></input>
+            </div>
 		</hgroup>
 		<center><section id="asientos">
         </section></center>
         <button type="button" onclick="enviarCambios()">Reservar</button>
 
 	</main>
-	</section>
-	<div popover id="PopUp">
-		<p>
-			<strong>la película dura: <time id="runtime-movie" datetime="PT4H18M3S"></time></strong>
-			<br>
-			<strong>Censura: <span id="rating"></span></strong>
-		<nav><ul></ul></nav>
-		</p>
+	<div popover id="">
 	</div>
 </body>
 <script>
+
+
+
+    function cambiarSalaFavorita() {
+        /* if (favorita.checked) {
+            const salasFavoritas = JSON.parse(localStorage.getItem("salasFavoritas"))
+            salasFavoritas.push([teatroId, auditorioId])
+            localStorage.setItem("salasFavoritas", JSON.stringify(salasFavoritas))
+        } else {
+            const salasFavoritas= localStorage.getItem("salasFavoritas")
+            salasFavoritas.forEach(sala => {
+                if (sala[0] === teatroId && sala[1] === auditorioId) {
+                    salasFavoritas.splice(salasFavoritas.indexOf(sala), 1)
+                }
+            })
+            localStorage.setItem("salasFavoritas", JSON.stringify(salasFavoritas))
+            
+        } */
+        
+    }
+
 	const backendUrl = "https://cinexunidos-production.up.railway.app/"
 	let urlActual = window.location.href;
 	function cargarPelicula(id, runtimeD, ratingD,teatros) {
@@ -189,12 +207,14 @@
 	function cargarasientosPorSala() {
 		const imagen = document.getElementById("imagenCine")
 		const titulo = document.getElementById("deCine")
+        const sala = document.getElementById("sala")
 		fetch(`${backendUrl}theatres/${teatroId}/auditoriums/${auditorioId}/showtimes/${showtimeId}`)
 			.then(response => response.json())
 			.then(data => {
 				imagen.src = backendUrl + data.movie.poster;
                 idPelícula = JSON.stringify(data.movie);
 				titulo.textContent = "Selecciona tus asientos para" + " " + data.movie.name;
+                sala.textContent = "Sala" + " " + auditorioId.split("-")[1]
 				const peliculas = document.getElementById("asientos")
                 //crear una tabla con los asientos de la sala 
                 tabla = document.createElement("table")
@@ -246,6 +266,21 @@
                 peliculas.appendChild(tabla)
             })
 	}
+
+    // const favorita = document.getElementById("favorita")
+    // if (localStorage.getItem("salasFavoritas") === null) {
+    //     localStorage.setItem("salasFavoritas", [[teatroId, auditorioId]])
+    //     console.log(localStorage);
+    // }else {
+    //     console.log(localStorage);
+    //     const salasFavoritas = localStorage.getItem("salasFavoritas")
+    //     log(salasFavoritas);
+    //     salasFavoritas.forEach(sala => {
+    //         if (sala[0] === teatroId && sala[1] === auditorioId) {
+    //             favorita.checked = true
+    //         }
+    //     })
+    // }
 
 	cargarasientosPorSala()
 
