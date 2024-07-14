@@ -59,7 +59,11 @@
 		const navLink = document.createElement("nav")
 		const ulLink = document.createElement("ul")
 		const titulo = document.createElement("h2")
-
+		
+		console.log(id, runtimeD, ratingD, showTimeInfo);
+		const a = document.createElement("a")
+		a.href = `./butacas.html?theatre=${showTimeInfo[0]}&sala=${showTimeInfo[1]}&pelicula=${id}`
+		a.appendChild(titulo)		
 		titulo.textContent = showTimeInfo[2]
 		p.textContent = `La película inicia a las: `
 		p.appendChild(startTime)
@@ -87,10 +91,6 @@
 		rating.textContent = ratingD
 		//agarrar el único hijo nav de popUp y agarrar su único hijo ul
 
-		console.log(id, runtimeD, ratingD, showTimeInfo);
-		const a = document.createElement("a")
-		a.href = `./butacas.html?theatre=${showTimeInfo[0]}&sala=${showTimeInfo[1]}&pelicula=${id}`
-		a.textContent = "Reservar"
 		popUp.appendChild(a)
 	}
 
@@ -207,10 +207,10 @@
 							sala.showtimes.forEach(showtime => {
 								salasFavoritas.forEach(salaFav => {
 									if (salaFav[0] === Teatro.id && salaFav[1] === sala.id) {
-										if (mapSalas.has(sala.name +", "+ Teatro.name)) {
-											mapSalas.get(sala.name +", "+ Teatro.name).push(showtime)
+										if (mapSalas.has(sala.id +", "+ Teatro.id)) {
+											mapSalas.get(sala.id +", "+ Teatro.id).showtimes.push(showtime)
 										} else {
-											mapSalas.set(sala.name +", "+ Teatro.name, [showtime])
+											mapSalas.set(sala.id +", "+ Teatro.id, {showtimes:[showtime], name: (sala.name + ", " + Teatro.name)})
 											console.log(mapSalas);
 										}
 									}
@@ -223,7 +223,7 @@
 					for (const sala of mapSalas) {
 						const li = document.createElement("li")
 						const h2 = document.createElement("h2")
-						h2.textContent = sala[0]
+						h2.textContent = sala[1].name
 
 						li.appendChild(h2)
 						li.setAttribute("class", "movie-theater-list")
@@ -231,9 +231,8 @@
 						listaFunciones.id = "cinesDisponibles"
 						listaFunciones.setAttribute("class", "card-grid")
 						li.appendChild(listaFunciones)
-						console.log(sala[0]);
 
-						for (const showtime of sala[1]) {
+						for (const showtime of sala[1].showtimes) {
 
 							const li = document.createElement("li")
 							li.setAttribute("class", "card")
@@ -243,7 +242,8 @@
 							figure.setAttribute("class", "movie-poster")
 							figure.id = showtime.id
 							console.log("fi", figure.id);
-							cargarPelicula(showtime.id, showtime.movie.runningTime, showtime.movie.rating, [teatroId, sala[0], showtime.movie.name, showtime.startTime], figure)
+
+							cargarPelicula(showtime.id, showtime.movie.runningTime, showtime.movie.rating, [sala[0].split(", ")[1], sala[0].split(",")[0], showtime.movie.name, showtime.startTime], figure)
 							li.appendChild(figure)
 							listaFunciones.appendChild(li)
 						}
