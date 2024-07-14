@@ -45,8 +45,21 @@
     margin-bottom: 50px;
   }
   #espacio {
-    flex-grow: 1;
+     flex-grow: 1;
   }
   #sala{
     padding-left: 20px;
   }
+  #favorita {
+    appearance: none;
+    width: 70px;
+    height: 50px;
+    background: url(../Images/twitter_fave.png) no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+  }
+  #favorita:checked {
+    background-position: -3519px 0;
+    transition: background 1s steps(55);
+  }
+  
