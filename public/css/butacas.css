@@ -62,4 +62,10 @@
     background-position: -3519px 0;
     transition: background 1s steps(55);
   }
+
+  @media (prefers-color-scheme: light) {
+    #favorita {
+      background: url(https://cssanimation.rocks/images/posts/steps/twitter_fave.png) no-repeat;
+    }
+  }
   
